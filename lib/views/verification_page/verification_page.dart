@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:eat_incredible_app/utils/barrel.dart';
+import 'package:eat_incredible_app/views/home_page/navigation/navigation.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class VerificationPage extends StatelessWidget {
@@ -131,7 +132,7 @@ class VerificationPage extends StatelessWidget {
                   backgroundColor: const Color.fromRGBO(226, 10, 19, 1),
                 ),
                 onPressed: () {
-                  Get.to(() => const VerificationPage());
+                  Get.to(() => const Navigation());
                 },
                 child: const Text('Verify'),
               ),
