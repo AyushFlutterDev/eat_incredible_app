@@ -45,6 +45,7 @@ dependencies:
   country_pickers: ^2.0.0
   fading_images_slider: ^0.0.4
   carousel_slider: ^4.1.1
+  cached_network_image: ^3.2.0
   pin_code_fields: ^7.4.0
   
 
