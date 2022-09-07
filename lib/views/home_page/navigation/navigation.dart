@@ -77,7 +77,7 @@ class _NavigationState extends State<Navigation> {
                       ]),
       ),
       bottomNavigationBar: Container(
-        height: 7.5.h,
+        height: 7.8.h,
         decoration: const BoxDecoration(
           color: Colors.white,
         ),
@@ -92,7 +92,7 @@ class _NavigationState extends State<Navigation> {
                   });
                 },
                 child: Container(
-                    height: 7.5.h,
+                    height: 7.8.h,
                     color: pageIndex == 0
                         ? const Color.fromRGBO(226, 10, 19, 1)
                         : Colors.white,
@@ -105,19 +105,19 @@ class _NavigationState extends State<Navigation> {
                               ? Icon(
                                   Icons.home_filled,
                                   color: Colors.white,
-                                  size: 18.sp,
+                                  size: 16.sp,
                                 )
                               : Icon(
                                   Icons.home_outlined,
                                   color: const Color.fromRGBO(120, 120, 120, 1),
-                                  size: 18.sp,
+                                  size: 16.sp,
                                 ),
                           Text("Home",
                               style: GoogleFonts.poppins(
                                   color: pageIndex == 0
                                       ? Colors.white
                                       : const Color.fromRGBO(120, 120, 120, 1),
-                                  fontSize: 9.sp))
+                                  fontSize: 7.5.sp))
                         ],
                       ),
                     )),
@@ -131,7 +131,7 @@ class _NavigationState extends State<Navigation> {
                   });
                 },
                 child: Container(
-                    height: 7.5.h,
+                    height: 7.8.h,
                     color: pageIndex == 1
                         ? const Color.fromRGBO(226, 10, 19, 1)
                         : Colors.white,
@@ -144,19 +144,19 @@ class _NavigationState extends State<Navigation> {
                               ? Icon(
                                   Icons.local_offer_outlined,
                                   color: Colors.white,
-                                  size: 18.sp,
+                                  size: 16.sp,
                                 )
                               : Icon(
                                   Icons.local_offer_outlined,
                                   color: const Color.fromRGBO(120, 120, 120, 1),
-                                  size: 18.sp,
+                                  size: 16.sp,
                                 ),
                           Text("Offers",
                               style: GoogleFonts.poppins(
                                   color: pageIndex == 1
                                       ? Colors.white
                                       : const Color.fromRGBO(120, 120, 120, 1),
-                                  fontSize: 9.sp))
+                                  fontSize: 7.5.sp))
                         ],
                       ),
                     )),
@@ -170,7 +170,7 @@ class _NavigationState extends State<Navigation> {
                   });
                 },
                 child: Container(
-                    height: 7.5.h,
+                    height: 7.8.h,
                     color: pageIndex == 2
                         ? const Color.fromRGBO(226, 10, 19, 1)
                         : Colors.white,
@@ -183,19 +183,19 @@ class _NavigationState extends State<Navigation> {
                               ? Icon(
                                   Icons.shopping_bag_outlined,
                                   color: Colors.white,
-                                  size: 18.sp,
+                                  size: 16.sp,
                                 )
                               : Icon(
                                   Icons.shopping_bag_outlined,
                                   color: const Color.fromRGBO(120, 120, 120, 1),
-                                  size: 18.sp,
+                                  size: 16.sp,
                                 ),
                           Text("Orders",
                               style: GoogleFonts.poppins(
                                   color: pageIndex == 2
                                       ? Colors.white
                                       : const Color.fromRGBO(120, 120, 120, 1),
-                                  fontSize: 9.sp))
+                                  fontSize: 7.5.sp))
                         ],
                       ),
                     )),
@@ -209,7 +209,7 @@ class _NavigationState extends State<Navigation> {
                   });
                 },
                 child: Container(
-                    height: 7.5.h,
+                    height: 7.8.h,
                     color: pageIndex == 3
                         ? const Color.fromRGBO(226, 10, 19, 1)
                         : Colors.white,
@@ -222,19 +222,19 @@ class _NavigationState extends State<Navigation> {
                               ? Icon(
                                   Icons.person_outline,
                                   color: Colors.white,
-                                  size: 18.sp,
+                                  size: 16.sp,
                                 )
                               : Icon(
                                   Icons.person_outline,
                                   color: const Color.fromRGBO(120, 120, 120, 1),
-                                  size: 18.sp,
+                                  size: 16.sp,
                                 ),
                           Text("Account",
                               style: GoogleFonts.poppins(
                                   color: pageIndex == 3
                                       ? Colors.white
                                       : const Color.fromRGBO(120, 120, 120, 1),
-                                  fontSize: 9.sp))
+                                  fontSize: 7.5.sp))
                         ],
                       ),
                     )),

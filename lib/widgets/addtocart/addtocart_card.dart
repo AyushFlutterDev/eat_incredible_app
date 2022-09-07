@@ -7,6 +7,7 @@ class AddtoCart extends StatefulWidget {
   final int disprice;
   final int price;
   final int quantity;
+  final ValueChanged<String>? onChanged;
 
   const AddtoCart({
     super.key,
@@ -15,6 +16,7 @@ class AddtoCart extends StatefulWidget {
     required this.disprice,
     required this.price,
     required this.quantity,
+    required this.onChanged,
   });
 
   @override
@@ -28,16 +30,15 @@ class _AddtoCartState extends State<AddtoCart> {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(2.w),
+        borderRadius: BorderRadius.circular(1.w),
         border: Border.all(color: Colors.grey.shade300),
       ),
-      height: 26.h,
-      width: 43.w,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 2.5),
-        child: Card(
-          elevation: 0,
-          child: Column(
+      width: 42.w,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomPic(
@@ -45,122 +46,154 @@ class _AddtoCartState extends State<AddtoCart> {
                       "https://img.freepik.com/free-photo/aloo-paratha-gobi-paratha-also-known-as-potato-cauliflower-stuffed-flatbread-dish-originating-from-indian-subcontinent_466689-76173.jpg?size=626&ext=jpg&ga=GA1.2.1083069314.1662365651",
                   height: 13.h,
                   width: 43.w),
+              SizedBox(
+                height: 1.h,
+              ),
               Padding(
-                padding: EdgeInsets.only(top: 1.h, bottom: 0.5.h),
-                child: Text(
-                  "Aloo Paratha",
-                  style: GoogleFonts.poppins(
-                      fontSize: 12, fontWeight: FontWeight.w500),
+                padding: EdgeInsets.only(left: 2.1.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Aloo Paratha",
+                      style: GoogleFonts.poppins(
+                          fontSize: 9.8.sp, fontWeight: FontWeight.w500),
+                    ),
+                    SizedBox(
+                      height: 0.6.h,
+                    ),
+                    Text(
+                      "500 gm",
+                      style: GoogleFonts.poppins(
+                          fontSize: 8.5.sp,
+                          fontWeight: FontWeight.w500,
+                          color: const Color.fromRGBO(148, 148, 148, 1)),
+                    ),
+                  ],
                 ),
               ),
-              Text(
-                "500 gm",
-                style: GoogleFonts.poppins(
-                    fontSize: 8.sp, fontWeight: FontWeight.w500),
-              ),
-              SizedBox(
-                height: 2.h,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('₹ 200',
-                          style: GoogleFonts.poppins(
-                              fontSize: 9.sp,
-                              decoration: TextDecoration.lineThrough)),
-                      Padding(
-                        padding: EdgeInsets.only(bottom: 0.1.h),
-                        child: Text(
-                          "₹ 100",
-                          style: GoogleFonts.poppins(
-                              fontSize: 12.sp, fontWeight: FontWeight.w500),
-                        ),
+            ],
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 8.sp, bottom: 8.sp, right: 8.sp),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('₹ 200',
+                        style: GoogleFonts.poppins(
+                            fontSize: 7.sp,
+                            decoration: TextDecoration.lineThrough,
+                            color: const Color.fromRGBO(148, 148, 148, 1))),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 0.1.h),
+                      child: Text(
+                        "₹ 100",
+                        style: GoogleFonts.poppins(
+                            fontSize: 11.sp, fontWeight: FontWeight.w500),
                       ),
-                    ],
-                  ),
-                  addToCard == 0
-                      ? GestureDetector(
-                          onTap: (() {
-                            setState(() {
-                              addToCard = 1;
-                            });
-                          }),
-                          child: Container(
-                            height: 3.4.h,
-                            width: 19.w,
-                            decoration: BoxDecoration(
-                              color: Colors.green,
-                              borderRadius: BorderRadius.circular(3),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Add",
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 10.sp,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                          ),
-                        )
-                      : Container(
-                          height: 3.4.h,
+                    ),
+                  ],
+                ),
+                addToCard == 0
+                    ? GestureDetector(
+                        onTap: (() {
+                          setState(() {
+                            addToCard = 1;
+                            widget.onChanged!(addToCard.toString());
+                          });
+                        }),
+                        child: Container(
+                          height: 3.5.h,
                           width: 19.w,
                           decoration: BoxDecoration(
-                              color: Colors.green,
-                              borderRadius: BorderRadius.circular(3)),
+                            color: Colors.transparent,
+                            borderRadius: BorderRadius.circular(3),
+                            border: Border.all(
+                                color: const Color.fromRGBO(2, 160, 8, 1)),
+                          ),
                           child: Center(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                GestureDetector(
-                                  onTap: (() {
-                                    setState(() {
-                                      if (addToCard > 0) {
-                                        addToCard--;
-                                      }
-                                    });
-                                  }),
+                            child: Text(
+                              "Add",
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 10.sp,
+                                  color: const Color.fromRGBO(2, 160, 8, 1),
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ),
+                        ),
+                      )
+                    : Container(
+                        width: 19.w,
+                        decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(3)),
+                        child: Center(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              GestureDetector(
+                                onTap: (() {
+                                  setState(() {
+                                    if (addToCard > 0) {
+                                      addToCard--;
+                                      widget.onChanged!(addToCard.toString());
+                                    }
+                                  });
+                                }),
+                                child: SizedBox(
+                                  width: 5.w,
+                                  height: 3.4.h,
                                   child: Icon(
                                     Icons.remove,
                                     color: Colors.white,
                                     size: 11.sp,
                                   ),
                                 ),
-                                Text(
-                                  addToCard.toString(),
-                                  overflow: TextOverflow.ellipsis,
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 10.sp,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w400),
+                              ),
+                              SizedBox(
+                                width: 5.w,
+                                height: 3.4.h,
+                                child: Center(
+                                  child: Text(
+                                    addToCard.toString(),
+                                    overflow: TextOverflow.ellipsis,
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 10.sp,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w400),
+                                  ),
                                 ),
-                                GestureDetector(
-                                  onTap: (() {
-                                    setState(() {
-                                      addToCard++;
-                                    });
-                                  }),
+                              ),
+                              GestureDetector(
+                                onTap: (() {
+                                  setState(() {
+                                    addToCard++;
+                                    widget.onChanged!(addToCard.toString());
+                                  });
+                                }),
+                                child: SizedBox(
+                                  width: 5.w,
+                                  height: 3.4.h,
                                   child: Icon(
                                     Icons.add,
                                     color: Colors.white,
                                     size: 12.sp,
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
-                ],
-              ),
-            ],
+                      ),
+              ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

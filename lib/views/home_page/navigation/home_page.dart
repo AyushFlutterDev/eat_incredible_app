@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:eat_incredible_app/utils/barrel.dart';
+import 'package:eat_incredible_app/views/home_page/others/filter_page/filter_page.dart';
 import 'package:eat_incredible_app/widgets/addtocart/addtocart_card.dart';
 import 'package:eat_incredible_app/widgets/banner/custom_banner.dart';
 
@@ -39,21 +42,27 @@ class _HomePageState extends State<HomePage> {
                 shrinkWrap: true,
                 itemCount: 4,
                 itemBuilder: (BuildContext context, int index) {
-                  return Card(
-                      elevation: 0,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          CustomPic(
-                              imageUrl:
-                                  "https://media.istockphoto.com/photos/green-salad-with-fresh-vegetables-picture-id953810510?k=20&m=953810510&s=612x612&w=0&h=-_CdBUI_-NAwJSmyELVkUeXubFTnri-rUiVbzraJ2nk=",
-                              height: 7.h,
-                              width: 25.w),
-                          Text("Green Salad",
-                              style: GoogleFonts.poppins(
-                                  fontSize: 12, fontWeight: FontWeight.normal)),
-                        ],
-                      ));
+                  return GestureDetector(
+                    onTap: () {
+                      Get.to(() => const FilterPage());
+                    },
+                    child: Card(
+                        elevation: 0,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CustomPic(
+                                imageUrl:
+                                    "https://media.istockphoto.com/photos/green-salad-with-fresh-vegetables-picture-id953810510?k=20&m=953810510&s=612x612&w=0&h=-_CdBUI_-NAwJSmyELVkUeXubFTnri-rUiVbzraJ2nk=",
+                                height: 7.h,
+                                width: 25.w),
+                            Text("Green Salad",
+                                style: GoogleFonts.poppins(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.normal)),
+                          ],
+                        )),
+                  );
                 },
               ),
             ),
@@ -134,21 +143,26 @@ class _HomePageState extends State<HomePage> {
                   width: 90.w),
             ),
             SizedBox(
-              height: 26.h,
+              height: 29.h,
               child: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: 4,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: EdgeInsets.only(left: 4.w),
-                      child: const AddtoCart(
-                          imageUrl:
-                              "https://img.freepik.com/free-photo/indian-chicken-biryani-served-terracotta-bowl-with-yogurt-white-background-selective-focus_466689-72554.jpg?w=996&t=st=1662382774~exp=1662383374~hmac=3195b0404799d307075e5326a2b654503021f07749f8327c762c38418dda67a7",
-                          title: "title",
-                          disprice: 200,
-                          price: 170,
-                          quantity: 500),
+                      padding: EdgeInsets.only(left: 2.w),
+                      child: AddtoCart(
+                        imageUrl:
+                            "https://img.freepik.com/free-photo/indian-chicken-biryani-served-terracotta-bowl-with-yogurt-white-background-selective-focus_466689-72554.jpg?w=996&t=st=1662382774~exp=1662383374~hmac=3195b0404799d307075e5326a2b654503021f07749f8327c762c38418dda67a7",
+                        title: "title",
+                        disprice: 200,
+                        price: 170,
+                        quantity: 500,
+                        onChanged: (String value) {
+                          log("$index iteam$value");
+                        },
+                      ),
                     );
                   }),
             ),
