@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:eat_incredible_app/utils/barrel.dart';
 import 'package:eat_incredible_app/views/home_page/navigation/acount_page.dart';
 import 'package:eat_incredible_app/views/home_page/navigation/home_page.dart';
@@ -7,7 +8,6 @@ import 'package:eat_incredible_app/widgets/appbar/custom_appbar.dart';
 
 class Navigation extends StatefulWidget {
   const Navigation({super.key});
-
   @override
   State<Navigation> createState() => _NavigationState();
 }
@@ -243,7 +243,17 @@ class _NavigationState extends State<Navigation> {
           ],
         ),
       ),
-      body: pages[pageIndex],
+      body: PageTransitionSwitcher(
+          duration: const Duration(milliseconds: 0),
+          transitionBuilder: (Widget child, Animation<double> primaryAnimation,
+              Animation<double> secondaryAnimation) {
+            return FadeThroughTransition(
+              animation: primaryAnimation,
+              secondaryAnimation: secondaryAnimation,
+              child: child,
+            );
+          },
+          child: pages[pageIndex]),
     );
   }
 }

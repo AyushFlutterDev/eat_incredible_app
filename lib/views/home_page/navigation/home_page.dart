@@ -1,8 +1,7 @@
-import 'dart:developer';
-
 import 'package:eat_incredible_app/utils/barrel.dart';
 import 'package:eat_incredible_app/views/home_page/others/filter_page/filter_page.dart';
-import 'package:eat_incredible_app/widgets/addtocart/addtocart_card.dart';
+import 'package:eat_incredible_app/views/home_page/others/product_details/product_details.dart';
+import 'package:eat_incredible_app/widgets/product_card/product_card.dart';
 import 'package:eat_incredible_app/widgets/banner/custom_banner.dart';
 
 class HomePage extends StatefulWidget {
@@ -151,16 +150,17 @@ class _HomePageState extends State<HomePage> {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: EdgeInsets.only(left: 2.w),
-                      child: AddtoCart(
+                      padding: EdgeInsets.only(left: 4.w),
+                      child: ProductCard(
                         imageUrl:
                             "https://img.freepik.com/free-photo/indian-chicken-biryani-served-terracotta-bowl-with-yogurt-white-background-selective-focus_466689-72554.jpg?w=996&t=st=1662382774~exp=1662383374~hmac=3195b0404799d307075e5326a2b654503021f07749f8327c762c38418dda67a7",
                         title: "title",
                         disprice: 200,
                         price: 170,
                         quantity: 500,
-                        onChanged: (String value) {
-                          log("$index iteam$value");
+                        onChanged: (String value) {},
+                        ontap: () {
+                          Get.to(() => const ProductDetails());
                         },
                       ),
                     );

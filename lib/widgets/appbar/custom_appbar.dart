@@ -8,7 +8,12 @@ class CustomAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.red,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/appbar.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Column(
           children: [
             SizedBox(height: 4.h),

@@ -1,7 +1,7 @@
 import 'dart:developer';
-
 import 'package:eat_incredible_app/utils/barrel.dart';
-import 'package:eat_incredible_app/widgets/addtocart/addtocart_card.dart';
+import 'package:eat_incredible_app/views/home_page/others/product_details/product_details.dart';
+import 'package:eat_incredible_app/widgets/product_card/product_card.dart';
 
 class ItemSearch extends StatelessWidget {
   const ItemSearch({super.key});
@@ -85,7 +85,7 @@ class ItemSearch extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: EdgeInsets.only(left: 5.w, top: 1.h),
-                      child: AddtoCart(
+                      child: ProductCard(
                         imageUrl:
                             "https://img.freepik.com/free-photo/indian-chicken-biryani-served-terracotta-bowl-with-yogurt-white-background-selective-focus_466689-72554.jpg?w=996&t=st=1662382774~exp=1662383374~hmac=3195b0404799d307075e5326a2b654503021f07749f8327c762c38418dda67a7",
                         title: "title",
@@ -94,6 +94,9 @@ class ItemSearch extends StatelessWidget {
                         quantity: 500,
                         onChanged: (String value) {
                           log("$index iteam$value");
+                        },
+                        ontap: () {
+                          Get.to(() => const ProductDetails());
                         },
                       ),
                     );
@@ -158,7 +161,7 @@ class ItemSearch extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: EdgeInsets.only(left: 5.w, top: 1.h),
-                      child: AddtoCart(
+                      child: ProductCard(
                         imageUrl:
                             "https://img.freepik.com/free-photo/indian-chicken-biryani-served-terracotta-bowl-with-yogurt-white-background-selective-focus_466689-72554.jpg?w=996&t=st=1662382774~exp=1662383374~hmac=3195b0404799d307075e5326a2b654503021f07749f8327c762c38418dda67a7",
                         title: "title",
@@ -167,6 +170,9 @@ class ItemSearch extends StatelessWidget {
                         quantity: 500,
                         onChanged: (String value) {
                           log("$index iteam$value");
+                        },
+                        ontap: () {
+                          Get.to(() => const ProductDetails());
                         },
                       ),
                     );
