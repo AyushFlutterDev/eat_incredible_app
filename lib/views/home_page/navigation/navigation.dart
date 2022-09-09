@@ -73,7 +73,13 @@ class _NavigationState extends State<Navigation> {
                     ),
                     actions: [
                         TextButton(
-                            onPressed: () {}, child: const Text("Need Help?")),
+                            onPressed: () {},
+                            child: const Text(
+                              "Need Help?",
+                              style: TextStyle(
+                                color: Color.fromRGBO(226, 10, 19, 1),
+                              ),
+                            )),
                       ]),
       ),
       bottomNavigationBar: Container(

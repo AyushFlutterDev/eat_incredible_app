@@ -1,5 +1,5 @@
 import 'package:eat_incredible_app/utils/barrel.dart';
-import 'package:eat_incredible_app/views/home_page/others/Item_search.dart/item_search.dart';
+import 'package:eat_incredible_app/views/home_page/others/Item_search/item_search.dart';
 import 'package:eat_incredible_app/views/home_page/others/location_search/location_search.dart';
 
 class CustomAppbar extends StatelessWidget {

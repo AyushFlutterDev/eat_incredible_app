@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             CustomPic(
                                 imageUrl:
-                                    "https://media.istockphoto.com/photos/green-salad-with-fresh-vegetables-picture-id953810510?k=20&m=953810510&s=612x612&w=0&h=-_CdBUI_-NAwJSmyELVkUeXubFTnri-rUiVbzraJ2nk=",
+                                    "https://cdn3d.iconscout.com/3d/premium/thumb/food-with-handbag-3311567-2754877@0.png",
                                 height: 7.h,
                                 width: 25.w),
                             Text("Green Salad",
