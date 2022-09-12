@@ -1,7 +1,6 @@
-import 'dart:developer';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:eat_incredible_app/utils/barrel.dart';
+import 'package:eat_incredible_app/views/home_page/others/cart_page/cart_page.dart';
 import 'package:eat_incredible_app/widgets/addtocart/addtocart_bar.dart';
 import 'package:eat_incredible_app/widgets/banner/custom_banner.dart';
 import 'package:eat_incredible_app/widgets/product_card/product_card.dart';
@@ -43,7 +42,6 @@ class _ProductDetailsState extends State<ProductDetails> {
         alignment: Alignment.topCenter,
         children: [
           SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               CarouselSlider(
@@ -333,7 +331,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             child: AddtocartBar(
               iteamCount: 20,
               onTap: () {
-                log("nothing");
+                Get.to(() => const CartPage());
               },
               totalAmount: 100.0,
             ),

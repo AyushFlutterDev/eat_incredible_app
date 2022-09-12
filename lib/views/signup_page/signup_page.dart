@@ -53,7 +53,6 @@ class _SignupPageState extends State<SignupPage> {
         ),
       ),
       body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
             CarouselSlider(

@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:eat_incredible_app/utils/barrel.dart';
+import 'package:eat_incredible_app/views/home_page/others/track_order/track_order_page.dart';
 import 'package:eat_incredible_app/widgets/order/order_card.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
@@ -11,7 +12,6 @@ class OrderPage extends StatelessWidget {
     return Scaffold(
       body: AnimationLimiter(
         child: ListView.builder(
-          physics: const BouncingScrollPhysics(),
           itemCount: 10,
           itemBuilder: (context, index) {
             return AnimationConfiguration.staggeredList(
@@ -33,6 +33,7 @@ class OrderPage extends StatelessWidget {
                         log("view details");
                       },
                       trackOrder: () {
+                        Get.to(() => const TrackOrderPage());
                         log("track order");
                       }),
                 ),

@@ -26,7 +26,7 @@ class _NavigationState extends State<Navigation> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: pageIndex == 0 || pageIndex == 1
-            ? Size.fromHeight(15.h)
+            ? Size.fromHeight(18.h)
             : Size.fromHeight(7.h),
         child: pageIndex == 0 || pageIndex == 1
             ? const CustomAppbar()

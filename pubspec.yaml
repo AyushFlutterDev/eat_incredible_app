@@ -51,6 +51,7 @@ dependencies:
   animate_do: ^2.1.0
   flutter_staggered_animations: ^1.1.1
   animations: ^2.0.4
+  timeline_tile: ^2.0.0
 
 dev_dependencies:
   flutter_test:
