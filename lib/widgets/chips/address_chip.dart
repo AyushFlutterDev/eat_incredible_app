@@ -32,8 +32,8 @@ class _AddressChipsState extends State<AddressChips> {
                 widget.onSelected!(addressList[0]);
               },
               child: Container(
-                  width: 28.w,
-                  height: 4.5.h,
+                  width: 85.w,
+                  height: 30.h,
                   decoration: BoxDecoration(
                     color: selectedAddress == addressList[0]
                         ? const Color.fromRGBO(226, 10, 19, 1)
@@ -46,7 +46,7 @@ class _AddressChipsState extends State<AddressChips> {
                   child: Row(
                     children: [
                       SizedBox(
-                        width: 2.w,
+                        width: 4.w,
                       ),
                       selectedAddress == addressList[0]
                           ? const Icon(
@@ -58,7 +58,7 @@ class _AddressChipsState extends State<AddressChips> {
                               color: Color.fromRGBO(226, 10, 19, 1),
                             ),
                       SizedBox(
-                        width: 2.w,
+                        width: 4.w,
                       ),
                       Text(
                         addressList[0],
@@ -81,8 +81,8 @@ class _AddressChipsState extends State<AddressChips> {
                 widget.onSelected!(addressList[1]);
               },
               child: Container(
-                  width: 28.w,
-                  height: 4.5.h,
+                  width: 85.w,
+                  height: 30.h,
                   decoration: BoxDecoration(
                     color: selectedAddress == addressList[1]
                         ? const Color.fromRGBO(226, 10, 19, 1)
@@ -95,7 +95,7 @@ class _AddressChipsState extends State<AddressChips> {
                   child: Row(
                     children: [
                       SizedBox(
-                        width: 2.w,
+                        width: 4.w,
                       ),
                       selectedAddress == addressList[1]
                           ? const Icon(
@@ -107,7 +107,7 @@ class _AddressChipsState extends State<AddressChips> {
                               color: Color.fromRGBO(226, 10, 19, 1),
                             ),
                       SizedBox(
-                        width: 2.w,
+                        width: 4.w,
                       ),
                       Text(
                         addressList[1],
@@ -130,8 +130,8 @@ class _AddressChipsState extends State<AddressChips> {
                 widget.onSelected!(addressList[2]);
               },
               child: Container(
-                  width: 28.w,
-                  height: 4.5.h,
+                  width: 85.w,
+                  height: 30.h,
                   decoration: BoxDecoration(
                     color: selectedAddress == addressList[2]
                         ? const Color.fromRGBO(226, 10, 19, 1)
@@ -144,7 +144,7 @@ class _AddressChipsState extends State<AddressChips> {
                   child: Row(
                     children: [
                       SizedBox(
-                        width: 2.w,
+                        width: 4.w,
                       ),
                       selectedAddress == addressList[2]
                           ? const Icon(
@@ -156,7 +156,7 @@ class _AddressChipsState extends State<AddressChips> {
                               color: Color.fromRGBO(226, 10, 19, 1),
                             ),
                       SizedBox(
-                        width: 2.w,
+                        width: 4.w,
                       ),
                       Text(
                         addressList[2],
@@ -174,7 +174,7 @@ class _AddressChipsState extends State<AddressChips> {
           ],
         ),
         SizedBox(
-          height: 1.8.h,
+          height: 15.h,
         ),
         GestureDetector(
           onTap: () {
@@ -184,8 +184,8 @@ class _AddressChipsState extends State<AddressChips> {
             widget.onSelected!(addressList[3]);
           },
           child: Container(
-              width: 28.w,
-              height: 4.5.h,
+              width: 85.w,
+              height: 30.h,
               decoration: BoxDecoration(
                 color: selectedAddress == addressList[3]
                     ? const Color.fromRGBO(226, 10, 19, 1)
@@ -198,7 +198,7 @@ class _AddressChipsState extends State<AddressChips> {
               child: Row(
                 children: [
                   SizedBox(
-                    width: 2.w,
+                    width: 4.w,
                   ),
                   selectedAddress == addressList[3]
                       ? const Icon(
@@ -210,7 +210,7 @@ class _AddressChipsState extends State<AddressChips> {
                           color: Color.fromRGBO(226, 10, 19, 1),
                         ),
                   SizedBox(
-                    width: 2.w,
+                    width: 4.w,
                   ),
                   Text(
                     addressList[3],

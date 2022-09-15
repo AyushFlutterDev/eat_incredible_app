@@ -16,7 +16,7 @@ class AddressCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 93.w,
+      width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -28,13 +28,13 @@ class AddressCard extends StatelessWidget {
                 Text(name,
                     style: TextStyle(
                       color: const Color(0xff000000),
-                      fontSize: 12.sp,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w700,
                     )),
               ],
             ),
             Padding(
-              padding: EdgeInsets.only(left: 0.8.w, top: 0.8.h),
+              padding: EdgeInsets.only(left: 0.8.w, top: 10.h),
               child: Text(address,
                   style: GoogleFonts.poppins(
                     color: const Color(0xff404040),
@@ -43,7 +43,7 @@ class AddressCard extends StatelessWidget {
                   )),
             ),
             Padding(
-              padding: EdgeInsets.only(left: 0.8.w, top: 1.h, bottom: 0.5.h),
+              padding: EdgeInsets.only(left: 0.8.w, top: 10.h, bottom: 0.5.h),
               child: Row(
                 children: [
                   GestureDetector(
@@ -51,18 +51,18 @@ class AddressCard extends StatelessWidget {
                     child: Text('Edit',
                         style: GoogleFonts.poppins(
                           color: const Color(0xffE20A13),
-                          fontSize: 10.sp,
-                          fontWeight: FontWeight.w700,
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w600,
                         )),
                   ),
-                  SizedBox(width: 4.w),
+                  SizedBox(width: 10.w),
                   GestureDetector(
                     onTap: onDelete,
                     child: Text('Delete',
                         style: GoogleFonts.poppins(
                           color: const Color(0xff8C8C8C),
-                          fontSize: 10.sp,
-                          fontWeight: FontWeight.w700,
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w600,
                         )),
                   )
                 ],

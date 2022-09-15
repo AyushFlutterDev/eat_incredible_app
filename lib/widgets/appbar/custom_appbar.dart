@@ -16,9 +16,9 @@ class CustomAppbar extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(height: 4.h),
+            SizedBox(height: 35.h),
             Padding(
-              padding: EdgeInsets.all(2.h),
+              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 10.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -54,11 +54,12 @@ class CustomAppbar extends StatelessWidget {
                 Get.to(() => const ItemSearch());
               },
               child: Container(
-                height: 6.h,
-                margin: EdgeInsets.symmetric(horizontal: 2.h),
+                height: 35.h,
+                width: double.infinity,
+                margin: EdgeInsets.symmetric(horizontal: 10.h),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(0.5.h),
+                  borderRadius: BorderRadius.circular(5.h),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -74,7 +75,7 @@ class CustomAppbar extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(right: 4.0.w),
+                      padding: EdgeInsets.only(right: 5.0.w),
                       child: const Icon(
                         Icons.search,
                         color: Colors.grey,

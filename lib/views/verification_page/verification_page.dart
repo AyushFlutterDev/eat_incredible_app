@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:eat_incredible_app/utils/barrel.dart';
 import 'package:eat_incredible_app/views/home_page/navigation/navigation.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -26,42 +25,38 @@ class VerificationPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              height: 73.h,
               child: Column(
                 children: [
-                  SizedBox(
-                    height: 2.h,
-                  ),
                   Center(
                     child: Text(
                       'OTP Verification',
                       style: GoogleFonts.poppins(
-                        fontSize: 20.sp,
+                        fontSize: 25.sp,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 1.h,
+                    height: 18.h,
                   ),
                   Center(
-                    child: SizedBox(
-                      width: 90.w,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 30.w),
                       child: Text(
                         'Enter the OTP you have received to set your password on 91******58',
                         style: GoogleFonts.poppins(
-                          fontSize: 10.sp,
-                          fontWeight: FontWeight.normal,
-                        ),
+                            fontSize: 11.5.sp,
+                            fontWeight: FontWeight.normal,
+                            color: const Color.fromRGBO(165, 165, 165, 1)),
                         textAlign: TextAlign.center,
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 7.h,
+                    height: 29.h,
                   ),
-                  SizedBox(
-                    width: 76.w,
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 39.w),
                     child: PinCodeTextField(
                       keyboardType: TextInputType.number,
                       appContext: context,
@@ -91,15 +86,15 @@ class VerificationPage extends StatelessWidget {
                       },
                     ),
                   ),
-                  SizedBox(
-                    width: 76.w,
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 39.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           '30 Sec',
                           style: GoogleFonts.poppins(
-                            fontSize: 10.sp,
+                            fontSize: 12.sp,
                             fontWeight: FontWeight.normal,
                             color: const Color.fromRGBO(165, 165, 165, 1),
                           ),
@@ -111,7 +106,7 @@ class VerificationPage extends StatelessWidget {
                           child: Text(
                             'Resend OTP',
                             style: GoogleFonts.poppins(
-                              fontSize: 10.sp,
+                              fontSize: 12.sp,
                               fontWeight: FontWeight.normal,
                               color: const Color.fromRGBO(226, 10, 19, 1),
                             ),
@@ -124,16 +119,30 @@ class VerificationPage extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: 80.w,
-              height: 6.h,
+              height: 280.h,
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 29.w),
+              height: 40.h,
+              width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
                   backgroundColor: const Color.fromRGBO(226, 10, 19, 1),
                 ),
                 onPressed: () {
                   Get.to(() => const Navigation());
                 },
-                child: const Text('Verify'),
+                child: Text(
+                  'Verify',
+                  style: GoogleFonts.poppins(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
           ],

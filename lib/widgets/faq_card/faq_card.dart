@@ -8,14 +8,15 @@ class FaqCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 3.w),
+      padding: EdgeInsets.symmetric(horizontal: 13.w),
       child: Column(
         children: [
           ListTile(
             title: Text(title,
                 style: TextStyle(
-                  fontSize: 11.5.sp,
+                  fontSize: 13.sp,
                   fontWeight: FontWeight.w400,
+                  color: const Color(0xff3C3C3C),
                 )),
             trailing: Icon(Icons.arrow_forward_ios, size: 15.sp),
             onTap: onTap,

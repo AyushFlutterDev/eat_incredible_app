@@ -10,9 +10,9 @@ class AddAddressPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 2.9.h),
+          padding: EdgeInsets.symmetric(horizontal: 13.w, vertical: 13.h),
           child: SizedBox(
-            height: 6.h,
+            height: 40.h,
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
@@ -25,6 +25,11 @@ class AddAddressPage extends StatelessWidget {
               ),
               child: const Text(
                 "Save Changes",
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
           ),
@@ -60,7 +65,7 @@ class AddAddressPage extends StatelessWidget {
           ],
         ),
         body: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 3.5.w),
+            padding: EdgeInsets.symmetric(horizontal: 13.w),
             child: ListView(
               children: [
                 ListTile(
@@ -72,7 +77,7 @@ class AddAddressPage extends StatelessWidget {
                     'Bharat Commercial Centre',
                     style: TextStyle(
                       color: const Color.fromRGBO(97, 97, 97, 1),
-                      fontSize: 11.sp,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w800,
                     ),
                   ),
@@ -91,7 +96,7 @@ class AddAddressPage extends StatelessWidget {
                     hintText: 'Pincode',
                     hintStyle: GoogleFonts.poppins(
                       color: const Color.fromRGBO(97, 97, 97, 1),
-                      fontSize: 10.sp,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                     ),
                     enabledBorder: const UnderlineInputBorder(
@@ -104,14 +109,14 @@ class AddAddressPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 2.3.h),
+                SizedBox(height: 10.h),
                 TextField(
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(
                     hintText: 'HOUSE / FLAT / BLOCK NO.',
                     hintStyle: GoogleFonts.poppins(
                       color: const Color.fromRGBO(97, 97, 97, 1),
-                      fontSize: 10.sp,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                     ),
                     enabledBorder: const UnderlineInputBorder(
@@ -124,14 +129,14 @@ class AddAddressPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 2.3.h),
+                SizedBox(height: 10.h),
                 TextField(
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(
                     hintText: 'APARTMENT / ROAD / AREA (OPTIONAL)',
                     hintStyle: GoogleFonts.poppins(
                       color: const Color.fromRGBO(97, 97, 97, 1),
-                      fontSize: 10.sp,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                     ),
                     enabledBorder: const UnderlineInputBorder(
@@ -144,14 +149,14 @@ class AddAddressPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 2.3.h),
+                SizedBox(height: 10.h),
                 TextField(
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(
                     hintText: 'ADD DESCRIPTION (OPTIONAL)',
                     hintStyle: GoogleFonts.poppins(
                       color: const Color.fromRGBO(97, 97, 97, 1),
-                      fontSize: 10.sp,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                     ),
                     enabledBorder: const UnderlineInputBorder(
@@ -164,14 +169,14 @@ class AddAddressPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 3.h),
+                SizedBox(height: 19.h),
                 Text("Save As",
                     style: GoogleFonts.poppins(
                       color: const Color.fromRGBO(97, 97, 97, 1),
-                      fontSize: 11.sp,
+                      fontSize: 13.sp,
                       fontWeight: FontWeight.w500,
                     )),
-                SizedBox(height: 2.5.h),
+                SizedBox(height: 25.h),
                 AddressChips(
                   onSelected: (String value) {
                     log(value);

@@ -17,7 +17,7 @@ class AcountPage extends StatelessWidget {
             ListTile(
               title: Text('Account Info',
                   style: GoogleFonts.poppins(
-                    fontSize: 11.5.sp,
+                    fontSize: 13.sp,
                   )),
               trailing: Icon(
                 Icons.arrow_forward_ios,
@@ -30,8 +30,8 @@ class AcountPage extends StatelessWidget {
             ),
             ListTile(
               title: Text('Addresses',
-                  style: TextStyle(
-                    fontSize: 11.5.sp,
+                  style: GoogleFonts.poppins(
+                    fontSize: 13.sp,
                   )),
               trailing: Icon(Icons.arrow_forward_ios, size: 15.sp),
               onTap: () => Get.to(() => const MyAddressPage()),
@@ -41,8 +41,8 @@ class AcountPage extends StatelessWidget {
             ),
             ListTile(
               title: Text('Payment methods',
-                  style: TextStyle(
-                    fontSize: 11.5.sp,
+                  style: GoogleFonts.poppins(
+                    fontSize: 13.sp,
                   )),
               trailing: Icon(Icons.arrow_forward_ios, size: 15.sp),
               onTap: () {},
@@ -52,8 +52,8 @@ class AcountPage extends StatelessWidget {
             ),
             ListTile(
               title: Text('About',
-                  style: TextStyle(
-                    fontSize: 11.5.sp,
+                  style: GoogleFonts.poppins(
+                    fontSize: 13.sp,
                   )),
               trailing: Icon(Icons.arrow_forward_ios, size: 15.sp),
               onTap: () => Get.to(() => const AboutPage()),
@@ -63,8 +63,8 @@ class AcountPage extends StatelessWidget {
             ),
             ListTile(
               title: Text('FAQs',
-                  style: TextStyle(
-                    fontSize: 11.5.sp,
+                  style: GoogleFonts.poppins(
+                    fontSize: 13.sp,
                   )),
               trailing: Icon(Icons.arrow_forward_ios, size: 15.sp),
               onTap: () => Get.to(() => const FaqsPage()),
@@ -74,8 +74,8 @@ class AcountPage extends StatelessWidget {
             ),
             ListTile(
               title: Text('chats',
-                  style: TextStyle(
-                    fontSize: 11.5.sp,
+                  style: GoogleFonts.poppins(
+                    fontSize: 13.sp,
                   )),
               trailing: Icon(Icons.arrow_forward_ios, size: 15.sp),
               onTap: () {},
@@ -85,8 +85,8 @@ class AcountPage extends StatelessWidget {
             ),
             ListTile(
               title: Text('Rate The App',
-                  style: TextStyle(
-                    fontSize: 11.5.sp,
+                  style: GoogleFonts.poppins(
+                    fontSize: 13.sp,
                   )),
               trailing: Icon(Icons.arrow_forward_ios, size: 15.sp),
               onTap: () {},
@@ -96,8 +96,8 @@ class AcountPage extends StatelessWidget {
             ),
             ListTile(
               title: Text('Share Application.',
-                  style: TextStyle(
-                    fontSize: 11.5.sp,
+                  style: GoogleFonts.poppins(
+                    fontSize: 13.sp,
                   )),
               trailing: Icon(Icons.arrow_forward_ios, size: 15.sp),
               onTap: () {},
@@ -107,8 +107,8 @@ class AcountPage extends StatelessWidget {
             ),
             ListTile(
               title: Text('Log Out',
-                  style: TextStyle(
-                    fontSize: 11.5.sp,
+                  style: GoogleFonts.poppins(
+                    fontSize: 13.sp,
                   )),
               trailing: Icon(Icons.arrow_forward_ios, size: 15.sp),
               onTap: () => () {},

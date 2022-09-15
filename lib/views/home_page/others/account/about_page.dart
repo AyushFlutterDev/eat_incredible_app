@@ -41,7 +41,7 @@ class AboutPage extends StatelessWidget {
           children: [
             SizedBox(height: 2.h),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 4.w),
+              padding: EdgeInsets.symmetric(horizontal: 19.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -49,20 +49,20 @@ class AboutPage extends StatelessWidget {
                     'About Us',
                     style: GoogleFonts.poppins(
                       color: const Color.fromRGBO(97, 97, 97, 1),
-                      fontSize: 12.sp,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  SizedBox(height: 1.5.h),
+                  SizedBox(height: 10.h),
                   Text(
                     'Eat Incredible is a food delivery app that allows you to order food from your  Eat Incredible is a food delivery app that  passionate about food and technology. We are committed to providing you with the best food delivery experience.  favorite restaurants and have it delivered to your doorstep. We are a team of young and vibrant individuals who are passionate about food and technology. We are committed to providing you with the best food delivery experience. Eat Incredible is a food delivery app that allows you to order food from your favorite restaurants and have it delivered to your doorstep. We are a team of young and vibrant individuals who are passionate about food and technology. We are committed to providing you with the best food delivery experience.',
                     style: GoogleFonts.poppins(
                       color: const Color.fromRGBO(97, 97, 97, 1),
-                      fontSize: 10.sp,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  SizedBox(height: 5.h),
+                  SizedBox(height: 20.h),
                   Column(
                     children: [
                       ListCard(
@@ -70,7 +70,7 @@ class AboutPage extends StatelessWidget {
                         isicon: false,
                         onTap: () {},
                       ),
-                      SizedBox(height: 2.h),
+                      SizedBox(height: 10.h),
                       ListCard(
                         title: "Terms And Conditions",
                         isicon: false,

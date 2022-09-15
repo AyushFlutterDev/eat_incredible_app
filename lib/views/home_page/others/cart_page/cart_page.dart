@@ -238,7 +238,7 @@ class _CartPageState extends State<CartPage> {
               child: ElevatedButton(
                 onPressed: _showBottomSheet,
                 style: ElevatedButton.styleFrom(
-                  primary: const Color(0xff02A008),
+                  backgroundColor: const Color(0xff02A008),
                 ),
                 child: Text("Checkout",
                     style: GoogleFonts.poppins(
@@ -299,7 +299,7 @@ class _CartPageState extends State<CartPage> {
                           Get.offAll(() => const OrderConfirmPage());
                         },
                         style: ElevatedButton.styleFrom(
-                          primary: const Color(0xff02A008),
+                          backgroundColor: const Color(0xff02A008),
                         ),
                         child: Text("Select Payment",
                             style: GoogleFonts.poppins(

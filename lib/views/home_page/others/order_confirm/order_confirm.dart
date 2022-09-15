@@ -132,7 +132,7 @@ class OrderConfirmPage extends StatelessWidget {
                       Get.offAll(() => const Navigation());
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: const Color(0xffE20A13),
+                      backgroundColor: const Color(0xffE20A13),
                     ),
                     child: Text("Continue Shoping",
                         style: GoogleFonts.poppins(

@@ -21,7 +21,7 @@ class FaqsPage extends StatelessWidget {
             'How can we help?',
             style: GoogleFonts.poppins(
               color: const Color.fromRGBO(97, 97, 97, 1),
-              fontSize: 12.sp,
+              fontSize: 13.sp,
               fontWeight: FontWeight.w700,
             ),
           ),
@@ -41,22 +41,22 @@ class FaqsPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(left: 4.w, bottom: 1.h, top: 2.h),
+              padding: EdgeInsets.only(left: 18.w, bottom: 10.h, top: 2.h),
               child: Text("help with a recent order",
                   style: GoogleFonts.poppins(
-                      fontSize: 12.sp, fontWeight: FontWeight.bold)),
+                      fontSize: 14.sp, fontWeight: FontWeight.bold)),
             ),
             Padding(
-              padding: EdgeInsets.only(left: 4.w, bottom: 4.h),
+              padding: EdgeInsets.only(left: 18.w, bottom: 20.h),
               child: Text("You don't have any orders.",
                   style: GoogleFonts.poppins(
-                      fontSize: 10.sp, fontWeight: FontWeight.w500)),
+                      fontSize: 12.sp, fontWeight: FontWeight.w500)),
             ),
             Padding(
-              padding: EdgeInsets.only(left: 4.w, bottom: 1.h),
+              padding: EdgeInsets.only(left: 18.w, bottom: 1.h),
               child: Text("FAQs",
                   style: GoogleFonts.poppins(
-                      fontSize: 12.sp, fontWeight: FontWeight.bold)),
+                      fontSize: 14.sp, fontWeight: FontWeight.bold)),
             ),
             FaqCard(
               title: "Safe & responsible ordering",

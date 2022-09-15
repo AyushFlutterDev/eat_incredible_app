@@ -41,7 +41,7 @@ dependencies:
   get_it: ^7.2.0
   google_fonts: ^3.0.1
   lottie: ^1.4.2
-  sizer: ^2.0.15
+  flutter_screenutil: ^5.5.4
   country_pickers: ^2.0.0
   fading_images_slider: ^0.0.4
   carousel_slider: ^4.1.1
@@ -52,6 +52,7 @@ dependencies:
   flutter_staggered_animations: ^1.1.1
   animations: ^2.0.4
   timeline_tile: ^2.0.0
+  cart_stepper: ^3.0.2
 
 dev_dependencies:
   flutter_test:

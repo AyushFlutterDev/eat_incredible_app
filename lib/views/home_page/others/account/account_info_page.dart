@@ -47,9 +47,9 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
         ],
       ),
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 2.9.h),
+        padding: EdgeInsets.symmetric(horizontal: 13.w, vertical: 10.h),
         child: SizedBox(
-          height: 6.h,
+          height: 44.h,
           child: ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
@@ -62,6 +62,11 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
             ),
             child: const Text(
               "Save Changes",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 12,
+                fontWeight: FontWeight.normal,
+              ),
             ),
           ),
         ),
@@ -101,7 +106,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                 ],
               ),
             ),
-            SizedBox(height: 2.h),
+            SizedBox(height: 15.h),
             Text(
               'Change Photo',
               style: GoogleFonts.poppins(
@@ -112,7 +117,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
             ),
             SizedBox(height: 2.h),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 3.9.w),
+              padding: EdgeInsets.symmetric(horizontal: 13.w),
               child: Column(
                 children: [
                   TextField(
@@ -122,7 +127,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                       hintText: '  Surajit Dutta',
                       hintStyle: GoogleFonts.poppins(
                         color: const Color.fromRGBO(97, 97, 97, 1),
-                        fontSize: 11.sp,
+                        fontSize: 12.sp,
                         fontWeight: FontWeight.w500,
                       ),
                       suffixIcon: Icon(
@@ -140,7 +145,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 2.h),
+                  SizedBox(height: 10.h),
                   TextField(
                     controller: dateController,
                     keyboardType: TextInputType.number,
@@ -148,7 +153,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                       hintText: '9749123456',
                       hintStyle: GoogleFonts.poppins(
                         color: const Color.fromRGBO(97, 97, 97, 1),
-                        fontSize: 11.sp,
+                        fontSize: 12.sp,
                         fontWeight: FontWeight.w500,
                       ),
                       suffixIcon: Icon(
@@ -166,7 +171,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 2.h),
+                  SizedBox(height: 10.h),
                   TextField(
                     controller: nameController,
                     keyboardType: TextInputType.name,
@@ -174,7 +179,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                       hintText: ' ayush.maji2001@gmail.com',
                       hintStyle: GoogleFonts.poppins(
                         color: const Color.fromRGBO(97, 97, 97, 1),
-                        fontSize: 11.sp,
+                        fontSize: 12.sp,
                         fontWeight: FontWeight.w500,
                       ),
                       suffixIcon: Icon(
@@ -192,7 +197,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 2.h),
+                  SizedBox(height: 10.h),
                   TextField(
                     readOnly: true,
                     onTap: () => Get.to(() => const MyAddressPage()),
@@ -202,7 +207,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                       hintText: '  123, ABC Street, Kolkata, West Bengal',
                       hintStyle: GoogleFonts.poppins(
                         color: const Color.fromRGBO(97, 97, 97, 1),
-                        fontSize: 11.sp,
+                        fontSize: 12.sp,
                         fontWeight: FontWeight.w500,
                       ),
                       suffixIcon: Icon(
@@ -222,7 +227,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 4.h),
+                  SizedBox(height: 10.h),
                 ],
               ),
             )

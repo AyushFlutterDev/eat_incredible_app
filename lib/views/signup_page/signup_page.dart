@@ -14,21 +14,21 @@ class _SignupPageState extends State<SignupPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: SizedBox(
-        height: 6.h,
+        height: 30.h,
         child: Center(
           child: Text.rich(
             TextSpan(
               text: 'I agree with your',
               style: TextStyle(
                 color: const Color.fromRGBO(60, 60, 67, 1),
-                fontSize: 10.sp,
+                fontSize: 12.sp,
               ),
               children: [
                 TextSpan(
                   text: ' Terms',
                   style: TextStyle(
                     color: const Color.fromRGBO(4, 4, 4, 1),
-                    fontSize: 10.sp,
+                    fontSize: 12.sp,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -36,7 +36,7 @@ class _SignupPageState extends State<SignupPage> {
                   text: ' and ',
                   style: TextStyle(
                     color: const Color.fromRGBO(60, 60, 67, 1),
-                    fontSize: 10.sp,
+                    fontSize: 12.sp,
                   ),
                 ),
                 TextSpan(
@@ -57,7 +57,7 @@ class _SignupPageState extends State<SignupPage> {
           children: [
             CarouselSlider(
               options: CarouselOptions(
-                height: 56.h,
+                height: 390.h,
                 autoPlayCurve: Curves.easeInSine,
                 viewportFraction: 1,
                 autoPlay: true,
@@ -75,7 +75,7 @@ class _SignupPageState extends State<SignupPage> {
               }).toList(),
             ),
             SizedBox(
-              height: 4.h,
+              height: 15.h,
             ),
             Center(
               child: Column(
@@ -83,7 +83,7 @@ class _SignupPageState extends State<SignupPage> {
                   Text(
                     'Get Fresh Fruits and ',
                     style: GoogleFonts.poppins(
-                      fontSize: 11.sp,
+                      fontSize: 17.sp,
                       fontWeight: FontWeight.bold,
                     ),
                     maxLines: 2,
@@ -91,18 +91,18 @@ class _SignupPageState extends State<SignupPage> {
                   Text(
                     ' vegetables at your doresteps',
                     style: GoogleFonts.poppins(
-                      fontSize: 11.sp,
+                      fontSize: 17.sp,
                       fontWeight: FontWeight.bold,
                     ),
                     maxLines: 2,
                   ),
                   SizedBox(
-                    height: 2.h,
+                    height: 13.h,
                   ),
                   Text(
                     'Log in or Sign Up',
                     style: TextStyle(
-                      fontSize: 9.sp,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.normal,
                     ),
                     maxLines: 2,
@@ -111,12 +111,12 @@ class _SignupPageState extends State<SignupPage> {
               ),
             ),
             SizedBox(
-              height: 2.h,
+              height: 15.h,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 1.6.h),
+              padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 15.h),
               child: Container(
-                height: 7.h,
+                height: 47.h,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
                     border: Border.all(color: Colors.grey)),
@@ -126,7 +126,7 @@ class _SignupPageState extends State<SignupPage> {
                     GestureDetector(
                       onTap: (() {}),
                       child: SizedBox(
-                        width: 14.w,
+                        width: 60.w,
                         child: const Center(child: Text("+91")),
                       ),
                     ),
@@ -162,26 +162,39 @@ class _SignupPageState extends State<SignupPage> {
                 ),
               ),
             ),
-            SizedBox(
-              width: 88.w,
-              height: 6.h,
+            Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: 15.w,
+              ),
+              width: double.infinity,
+              height: 40.h,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
                   backgroundColor: const Color.fromRGBO(226, 10, 19, 1),
                 ),
                 onPressed: () {
                   Get.to(() => const VerificationPage());
                 },
-                child: const Text('Continue'),
+                child: Text(
+                  'Continue',
+                  style: GoogleFonts.poppins(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
             SizedBox(
-              height: 2.h,
+              height: 10.h,
             ),
             Text(
               'Skip Log In',
               style: GoogleFonts.poppins(
-                fontSize: 10.sp,
+                fontSize: 12.sp,
                 fontWeight: FontWeight.normal,
               ),
             ),

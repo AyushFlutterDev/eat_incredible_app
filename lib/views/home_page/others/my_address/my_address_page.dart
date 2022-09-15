@@ -52,11 +52,11 @@ class MyAddressPage extends StatelessWidget {
               label: Text('Add new address',
                   style: TextStyle(
                     color: const Color(0xff000000),
-                    fontSize: 12.sp,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w700,
                   )),
             ),
-            SizedBox(height: 1.h),
+            SizedBox(height: 5.h),
             ListView.builder(
                 shrinkWrap: true,
                 physics: const BouncingScrollPhysics(),
@@ -64,7 +64,8 @@ class MyAddressPage extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Center(
                     child: Container(
-                      padding: EdgeInsets.only(top: 2.5.h),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 13.w, vertical: 8.h),
                       child: AddressCard(
                         address:
                             'Ogunlana Drive, Surulere, Lagos State Nigeria 100001',

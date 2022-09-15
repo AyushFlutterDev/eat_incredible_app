@@ -26,8 +26,8 @@ class _NavigationState extends State<Navigation> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: pageIndex == 0 || pageIndex == 1
-            ? Size.fromHeight(18.h)
-            : Size.fromHeight(7.h),
+            ? Size.fromHeight(100.h)
+            : Size.fromHeight(35.h),
         child: pageIndex == 0 || pageIndex == 1
             ? const CustomAppbar()
             : pageIndex == 2
@@ -83,7 +83,7 @@ class _NavigationState extends State<Navigation> {
                       ]),
       ),
       bottomNavigationBar: Container(
-        height: 7.8.h,
+        height: 48.h,
         decoration: const BoxDecoration(
           color: Colors.white,
         ),
@@ -98,7 +98,7 @@ class _NavigationState extends State<Navigation> {
                   });
                 },
                 child: Container(
-                    height: 7.8.h,
+                    height: double.infinity,
                     color: pageIndex == 0
                         ? const Color.fromRGBO(226, 10, 19, 1)
                         : Colors.white,
@@ -111,19 +111,19 @@ class _NavigationState extends State<Navigation> {
                               ? Icon(
                                   Icons.home_filled,
                                   color: Colors.white,
-                                  size: 16.sp,
+                                  size: 20.sp,
                                 )
                               : Icon(
                                   Icons.home_outlined,
                                   color: const Color.fromRGBO(120, 120, 120, 1),
-                                  size: 16.sp,
+                                  size: 20.sp,
                                 ),
                           Text("Home",
                               style: GoogleFonts.poppins(
                                   color: pageIndex == 0
                                       ? Colors.white
                                       : const Color.fromRGBO(120, 120, 120, 1),
-                                  fontSize: 7.5.sp))
+                                  fontSize: 12.sp))
                         ],
                       ),
                     )),
@@ -137,7 +137,7 @@ class _NavigationState extends State<Navigation> {
                   });
                 },
                 child: Container(
-                    height: 7.8.h,
+                    height: double.infinity,
                     color: pageIndex == 1
                         ? const Color.fromRGBO(226, 10, 19, 1)
                         : Colors.white,
@@ -150,19 +150,19 @@ class _NavigationState extends State<Navigation> {
                               ? Icon(
                                   Icons.local_offer_outlined,
                                   color: Colors.white,
-                                  size: 16.sp,
+                                  size: 20.sp,
                                 )
                               : Icon(
                                   Icons.local_offer_outlined,
                                   color: const Color.fromRGBO(120, 120, 120, 1),
-                                  size: 16.sp,
+                                  size: 20.sp,
                                 ),
                           Text("Offers",
                               style: GoogleFonts.poppins(
                                   color: pageIndex == 1
                                       ? Colors.white
                                       : const Color.fromRGBO(120, 120, 120, 1),
-                                  fontSize: 7.5.sp))
+                                  fontSize: 12.sp))
                         ],
                       ),
                     )),
@@ -176,7 +176,7 @@ class _NavigationState extends State<Navigation> {
                   });
                 },
                 child: Container(
-                    height: 7.8.h,
+                    height: double.infinity,
                     color: pageIndex == 2
                         ? const Color.fromRGBO(226, 10, 19, 1)
                         : Colors.white,
@@ -189,19 +189,19 @@ class _NavigationState extends State<Navigation> {
                               ? Icon(
                                   Icons.shopping_bag_outlined,
                                   color: Colors.white,
-                                  size: 16.sp,
+                                  size: 20.sp,
                                 )
                               : Icon(
                                   Icons.shopping_bag_outlined,
                                   color: const Color.fromRGBO(120, 120, 120, 1),
-                                  size: 16.sp,
+                                  size: 20.sp,
                                 ),
                           Text("Orders",
                               style: GoogleFonts.poppins(
                                   color: pageIndex == 2
                                       ? Colors.white
                                       : const Color.fromRGBO(120, 120, 120, 1),
-                                  fontSize: 7.5.sp))
+                                  fontSize: 12.sp))
                         ],
                       ),
                     )),
@@ -215,7 +215,7 @@ class _NavigationState extends State<Navigation> {
                   });
                 },
                 child: Container(
-                    height: 7.8.h,
+                    height: double.infinity,
                     color: pageIndex == 3
                         ? const Color.fromRGBO(226, 10, 19, 1)
                         : Colors.white,
@@ -228,19 +228,19 @@ class _NavigationState extends State<Navigation> {
                               ? Icon(
                                   Icons.person_outline,
                                   color: Colors.white,
-                                  size: 16.sp,
+                                  size: 20.sp,
                                 )
                               : Icon(
                                   Icons.person_outline,
                                   color: const Color.fromRGBO(120, 120, 120, 1),
-                                  size: 16.sp,
+                                  size: 20.sp,
                                 ),
                           Text("Account",
                               style: GoogleFonts.poppins(
                                   color: pageIndex == 3
                                       ? Colors.white
                                       : const Color.fromRGBO(120, 120, 120, 1),
-                                  fontSize: 7.5.sp))
+                                  fontSize: 12.sp))
                         ],
                       ),
                     )),
