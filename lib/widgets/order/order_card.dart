@@ -25,122 +25,130 @@ class OrderCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8.sp),
-          border: Border.all(
-            color: const Color.fromRGBO(208, 208, 208, 1),
-            width: 1,
+      child: Padding(
+        padding: const EdgeInsets.all(18.0),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8.sp),
+            border: Border.all(
+              color: const Color(0xffD0D0D0),
+              width: 1,
+            ),
           ),
-        ),
-        width: 93.w,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Container(
-              padding: EdgeInsets.only(left: 2.w, right: 2.w, top: 1.h),
-              height: 9.5.h,
-              width: 93.w,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 9.w, vertical: 9.h),
+                child: Container(
+                  //color: Colors.green,
+                  // padding: EdgeInsets.only(left: 2.w, right: 2.w, top: 1.h),
+                  //  padding: EdgeInsets.all(8),
+                  height: 69.5.h,
+                  width: double.infinity,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Container(
-                        height: 9.h,
-                        width: 14.w,
-                        decoration: BoxDecoration(
-                          color: const Color.fromRGBO(208, 208, 208, 0.25),
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(
-                            color: const Color.fromRGBO(208, 208, 208, 1),
-                            width: 1,
-                          ),
-                        ),
-                        child: CustomPic(
-                          height: 6.h,
-                          imageUrl: image,
-                          width: 6.h,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 2.5.w,
-                      ),
-                      Column(
+                      Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            orderId,
-                            style: GoogleFonts.poppins(
-                              color: const Color.fromRGBO(0, 0, 0, 19),
-                              fontSize: 10.sp,
-                              fontWeight: FontWeight.w700,
+                          Container(
+                            height: 63.h,
+                            width: 63.w,
+                            decoration: BoxDecoration(
+                              color: const Color.fromRGBO(208, 208, 208, 0.25),
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(
+                                color: const Color.fromRGBO(208, 208, 208, 1),
+                                width: 1,
+                              ),
                             ),
-                            textAlign: TextAlign.left,
+                            child: CustomPic(
+                              height: 36.h,
+                              imageUrl: image,
+                              width: 36.h,
+                            ),
                           ),
-                          Text(
-                            'Total Amount  $orderTotal',
-                            style: GoogleFonts.poppins(
-                              color: const Color.fromRGBO(64, 64, 64, 1),
-                              fontSize: 10.sp,
-                              fontWeight: FontWeight.w500,
-                            ),
-                            textAlign: TextAlign.left,
+                          SizedBox(
+                            width: 14.w,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                orderId,
+                                style: GoogleFonts.poppins(
+                                  color: const Color.fromRGBO(0, 0, 0, 19),
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                              Text(
+                                'Total Amount\n₹$orderTotal',
+                                style: GoogleFonts.poppins(
+                                  color: const Color(0xff404040),
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                            ],
                           ),
                         ],
                       ),
+                      Container(
+                        padding: EdgeInsets.only(
+                          left: 1.5.w,
+                          right: 1.5.w,
+                        ),
+                        height: 23.4.h,
+                        decoration: BoxDecoration(
+                          color: const Color.fromRGBO(211, 104, 5, 0.25),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Icon(
+                                // icon
+                                Icons.circle,
+                                color: const Color.fromARGB(255, 246, 122, 7),
+                                size: 8.sp,
+                              ),
+                              SizedBox(
+                                width: 1.3.w,
+                              ),
+                              Text(
+                                orderStatus,
+                                style: GoogleFonts.poppins(
+                                  color: const Color.fromRGBO(211, 104, 5, 1),
+                                  fontSize: 9.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
                   ),
-                  Container(
-                    padding: EdgeInsets.only(
-                      left: 1.5.w,
-                      right: 1.5.w,
-                    ),
-                    height: 3.4.h,
-                    decoration: BoxDecoration(
-                      color: const Color.fromRGBO(211, 104, 5, 0.25),
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Icon(
-                          // icon
-                          Icons.circle,
-                          color: const Color.fromARGB(255, 246, 122, 7),
-                          size: 8.sp,
-                        ),
-                        SizedBox(
-                          width: 1.3.w,
-                        ),
-                        Text(
-                          orderStatus,
-                          style: GoogleFonts.poppins(
-                            color: const Color.fromRGBO(211, 104, 5, 1),
-                            fontSize: 9.sp,
-                            fontWeight: FontWeight.w700,
-                          ),
-                          textAlign: TextAlign.left,
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                ),
               ),
-            ),
-            SizedBox(
-              height: 1.5.h,
-            ),
-            const Divider(
-                color: Color.fromRGBO(208, 208, 208, 1), thickness: 1),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 2.5.w, vertical: 0.9.h),
-              child: SizedBox(
-                height: 12.h,
-                width: 93.w,
+              SizedBox(
+                height: 1.5.h,
+              ),
+              const Divider(
+                  color: Color.fromRGBO(208, 208, 208, 1), thickness: 1),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 2.h),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -150,27 +158,30 @@ class OrderCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          ' $orderQuantity items',
+                          '$orderQuantity items',
                           style: GoogleFonts.poppins(
                             color: const Color.fromRGBO(97, 97, 97, 1),
-                            fontSize: 9.5.sp,
+                            fontSize: 12.sp,
                             fontWeight: FontWeight.w600,
                           ),
                           textAlign: TextAlign.left,
                         ),
                         SizedBox(
-                          height: 1.h,
+                          height: 8.h,
                         ),
                         Text(
                           'Placed on $orderDate',
                           style: GoogleFonts.poppins(
                             color: const Color.fromRGBO(97, 97, 97, 1),
-                            fontSize: 9.sp,
-                            fontWeight: FontWeight.w400,
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w300,
                           ),
                           textAlign: TextAlign.left,
                         ),
                       ],
+                    ),
+                    SizedBox(
+                      height: 20.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -182,9 +193,9 @@ class OrderCard extends StatelessWidget {
                               Text(
                                 'View Details',
                                 style: GoogleFonts.poppins(
-                                  color: const Color.fromRGBO(2, 160, 8, 1.0),
-                                  fontSize: 10.sp,
-                                  fontWeight: FontWeight.w600,
+                                  color: const Color(0xff02A008),
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w500,
                                 ),
                                 textAlign: TextAlign.left,
                               ),
@@ -203,19 +214,22 @@ class OrderCard extends StatelessWidget {
                             'Track Order',
                             style: GoogleFonts.poppins(
                               color: const Color.fromRGBO(226, 10, 19, 1.0),
-                              fontSize: 10.sp,
-                              fontWeight: FontWeight.w600,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
                             ),
                             textAlign: TextAlign.left,
                           ),
                         ),
                       ],
+                    ),
+                    SizedBox(
+                      height: 10.h,
                     )
                   ],
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
