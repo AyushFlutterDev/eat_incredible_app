@@ -16,14 +16,14 @@ class AddtocartBar extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-          height: 8.h,
-          width: 92.w,
+          height: 50.h,
+          width: 320.w,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: const Color.fromRGBO(2, 160, 8, 1),
           ),
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 4.w),
+            padding: EdgeInsets.symmetric(horizontal: 14.3.w),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -32,27 +32,27 @@ class AddtocartBar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      iteamCount.toString(),
+                      "$iteamCount items",
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 9.sp,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w400),
                     ),
                     Text(
                       "Rs. ${totalAmount.toString()}",
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 10.sp,
+                          fontSize: 13.sp,
                           fontWeight: FontWeight.w700),
                     ),
                   ],
                 ),
                 Row(children: [
                   Text(
-                    "Add to cart",
+                    "View Cart",
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 10.sp,
+                        fontSize: 12.5.sp,
                         fontWeight: FontWeight.w700),
                   ),
                   const Icon(

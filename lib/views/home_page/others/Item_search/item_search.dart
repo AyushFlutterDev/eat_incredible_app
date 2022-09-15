@@ -44,39 +44,42 @@ class ItemSearch extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-            SizedBox(height: 1.5.h),
+            SizedBox(height: 8.h),
             Center(
-              child: SizedBox(
-                width: 93.w,
-                height: 6.5.h,
-                child: TextFormField(
-                  autofocus: true,
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.only(left: 4.9.w),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5.sp),
-                      borderSide: BorderSide.none,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 12.w),
+                child: SizedBox(
+                  width: double.infinity,
+                  height: 40.h,
+                  child: TextFormField(
+                    autofocus: true,
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.only(left: 4.9.w),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.sp),
+                        borderSide: BorderSide.none,
+                      ),
+                      filled: true,
+                      fillColor: const Color.fromARGB(255, 235, 234, 234),
+                      hintText: 'Search',
+                      suffixIcon: const Icon(Icons.search),
                     ),
-                    filled: true,
-                    fillColor: const Color.fromARGB(255, 235, 234, 234),
-                    hintText: 'Search',
-                    suffixIcon: const Icon(Icons.search),
                   ),
                 ),
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(left: 5.w, top: 1.8.h, bottom: 1.5.h),
+              padding: EdgeInsets.only(left: 12.w, top: 15.h, bottom: 15.h),
               child: Row(
                 children: [
                   Text("Popular In your Area",
                       style: GoogleFonts.poppins(
-                          fontSize: 11.sp, fontWeight: FontWeight.w600)),
+                          fontSize: 14.sp, fontWeight: FontWeight.w600)),
                 ],
               ),
             ),
             SizedBox(
-              height: 29.h,
+              height: 165.h,
               child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
                   shrinkWrap: true,
@@ -84,7 +87,7 @@ class ItemSearch extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: EdgeInsets.only(left: 5.w, top: 1.h),
+                      padding: EdgeInsets.only(left: 12.w),
                       child: ProductCard(
                         imageUrl:
                             "https://img.freepik.com/free-photo/indian-chicken-biryani-served-terracotta-bowl-with-yogurt-white-background-selective-focus_466689-72554.jpg?w=996&t=st=1662382774~exp=1662383374~hmac=3195b0404799d307075e5326a2b654503021f07749f8327c762c38418dda67a7",
@@ -92,9 +95,7 @@ class ItemSearch extends StatelessWidget {
                         disprice: 200,
                         price: 170,
                         quantity: 500,
-                        onChanged: (String value) {
-                          log("$index iteam$value");
-                        },
+                        onChanged: (String value) {},
                         ontap: () {
                           Get.to(() => const ProductDetails());
                         },
@@ -103,17 +104,17 @@ class ItemSearch extends StatelessWidget {
                   }),
             ),
             Padding(
-              padding: EdgeInsets.only(left: 5.w, top: 2.5.h, bottom: 1.h),
+              padding: EdgeInsets.only(left: 13.w, top: 20.h, bottom: 6.h),
               child: Row(
                 children: [
                   Text("Trending Searchs",
                       style: GoogleFonts.poppins(
-                          fontSize: 11.sp, fontWeight: FontWeight.w600)),
+                          fontSize: 14.sp, fontWeight: FontWeight.w600)),
                 ],
               ),
             ),
             SizedBox(
-              height: 8.h,
+              height: 50.h,
               child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
                   shrinkWrap: true,
@@ -121,13 +122,14 @@ class ItemSearch extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: EdgeInsets.only(left: 5.w, top: 1.h),
+                      padding: EdgeInsets.only(left: 8.w, top: 1.h),
                       child: FilterChip(
-                        shape: BeveledRectangleBorder(
-                            side: BorderSide(
-                          color: Colors.grey.shade300,
-                          width: 1,
-                        )),
+                        side: const BorderSide(color: Colors.grey),
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(20),
+                          ),
+                        ),
                         backgroundColor: Colors.transparent,
                         label: Text('Vegetables',
                             style: GoogleFonts.poppins(
@@ -142,25 +144,25 @@ class ItemSearch extends StatelessWidget {
                   }),
             ),
             Padding(
-              padding: EdgeInsets.only(left: 5.w, top: 2.5.h, bottom: 1.h),
+              padding: EdgeInsets.only(left: 13.w, top: 13.h, bottom: 15.h),
               child: Row(
                 children: [
                   Text("your may also like",
                       style: GoogleFonts.poppins(
-                          fontSize: 11.sp, fontWeight: FontWeight.w600)),
+                          fontSize: 14.sp, fontWeight: FontWeight.w600)),
                 ],
               ),
             ),
             SizedBox(
-              height: 29.h,
+              height: 165.h,
               child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: 40,
+                  itemCount: 4,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: EdgeInsets.only(left: 5.w, top: 1.h),
+                      padding: EdgeInsets.only(left: 12.w),
                       child: ProductCard(
                         imageUrl:
                             "https://img.freepik.com/free-photo/indian-chicken-biryani-served-terracotta-bowl-with-yogurt-white-background-selective-focus_466689-72554.jpg?w=996&t=st=1662382774~exp=1662383374~hmac=3195b0404799d307075e5326a2b654503021f07749f8327c762c38418dda67a7",
@@ -168,9 +170,7 @@ class ItemSearch extends StatelessWidget {
                         disprice: 200,
                         price: 170,
                         quantity: 500,
-                        onChanged: (String value) {
-                          log("$index iteam$value");
-                        },
+                        onChanged: (String value) {},
                         ontap: () {
                           Get.to(() => const ProductDetails());
                         },

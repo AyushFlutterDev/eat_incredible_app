@@ -162,7 +162,7 @@ class _HomePageState extends State<HomePage> {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: EdgeInsets.only(left: 12.w),
+                      padding: EdgeInsets.only(left: 10.w),
                       child: ProductCard(
                         imageUrl:
                             "https://img.freepik.com/free-photo/indian-chicken-biryani-served-terracotta-bowl-with-yogurt-white-background-selective-focus_466689-72554.jpg?w=996&t=st=1662382774~exp=1662383374~hmac=3195b0404799d307075e5326a2b654503021f07749f8327c762c38418dda67a7",

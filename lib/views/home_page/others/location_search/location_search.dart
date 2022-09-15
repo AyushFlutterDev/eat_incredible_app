@@ -13,22 +13,25 @@ class LocationSearchPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(height: 8.h),
-              SizedBox(
-                width: 93.w,
-                height: 6.5.h,
-                child: TextFormField(
-                  autofocus: true,
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.only(left: 4.9.w),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5.sp),
-                      borderSide: BorderSide.none,
+              SizedBox(height: 60.h),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                child: SizedBox(
+                  width: double.infinity,
+                  height: 40.h,
+                  child: TextFormField(
+                    autofocus: true,
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.only(left: 4.9.w),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.sp),
+                        borderSide: BorderSide.none,
+                      ),
+                      filled: true,
+                      fillColor: const Color.fromARGB(255, 235, 234, 234),
+                      hintText: ' Search',
+                      suffixIcon: const Icon(Icons.search),
                     ),
-                    filled: true,
-                    fillColor: const Color.fromARGB(255, 235, 234, 234),
-                    hintText: 'Search',
-                    suffixIcon: const Icon(Icons.search),
                   ),
                 ),
               ),
@@ -41,7 +44,7 @@ class LocationSearchPage extends StatelessWidget {
                 subtitle: Text('Using GPS'),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 5.w, top: 1.h),
+                padding: EdgeInsets.only(left: 13.w, top: 10.h),
                 child: Row(
                   children: [
                     Text("Saved Locations",

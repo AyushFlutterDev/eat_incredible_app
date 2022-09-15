@@ -17,8 +17,8 @@ class UseCouponCard extends StatelessWidget {
       child: GestureDetector(
         onTap: isApplyCoupon ? () {} : onTap,
         child: Container(
-          height: isApplyCoupon ? 7.9.h : 6.5.h,
-          width: 93.w,
+          height: isApplyCoupon ? 60.h : 45.h,
+          width: double.infinity,
           decoration: BoxDecoration(
             color: const Color.fromRGBO(226, 10, 19, 0.1),
             borderRadius: BorderRadius.circular(5),
@@ -37,7 +37,7 @@ class UseCouponCard extends StatelessWidget {
                   Row(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(right: 2.0.w, left: 2.0.w),
+                        padding: EdgeInsets.only(left: 10.w),
                         child: Icon(
                           Icons.local_offer_rounded,
                           color: const Color(0xffE20A13),
@@ -45,10 +45,10 @@ class UseCouponCard extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
+                        padding: EdgeInsets.only(left: 8.w),
                         child: Text("Use Coupons",
                             style: GoogleFonts.poppins(
-                              fontSize: 8.5.sp,
+                              fontSize: 13.sp,
                               fontWeight: FontWeight.w700,
                               color: Colors.black,
                             )),
@@ -68,7 +68,7 @@ class UseCouponCard extends StatelessWidget {
                             child: Text(
                               "Remove",
                               style: GoogleFonts.poppins(
-                                fontSize: 8.5.sp,
+                                fontSize: 13.sp,
                                 fontWeight: FontWeight.w700,
                                 color: const Color(0xffE20A13),
                               ),
@@ -80,10 +80,10 @@ class UseCouponCard extends StatelessWidget {
               Visibility(
                 visible: isApplyCoupon,
                 child: Padding(
-                  padding: EdgeInsets.only(top: 0.7.h, left: 3.w),
+                  padding: EdgeInsets.only(top: 0.7.h, left: 10.w),
                   child: Text("Apply Offer applied on the bill",
                       style: GoogleFonts.poppins(
-                        fontSize: 8.8.sp,
+                        fontSize: 13.sp,
                         fontWeight: FontWeight.normal,
                         color: Colors.black,
                       )),

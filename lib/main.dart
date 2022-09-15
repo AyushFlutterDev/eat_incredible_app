@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         splitScreenMode: true,
         builder: (context, child) {
           return GetMaterialApp(
-            theme: ThemeData(useMaterial3: true),
+            theme: ThemeData(useMaterial3: false),
             debugShowCheckedModeBanner: false,
             title: 'Eat incredible App',
             home: const SignupPage(),
