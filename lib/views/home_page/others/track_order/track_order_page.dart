@@ -160,22 +160,31 @@ class TrackOrderPage extends StatelessWidget {
                 ],
               )*/
 
-               Card(
-                 child: Container(
-                   height: 1,
-                   color: Colors.grey,
-                 ),
-               ),
-               SizedBox(height: 30,),
+              Text(
+                "17 items in this order",
+                style: GoogleFonts.poppins(
+                  color: Color(0xff000000),
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              
+              Container(
+                height: 1,
+                color: Colors.grey,
+              ),
+              SizedBox(
+                height: 30,
+              ),
               //!======================================================================================
               ListView.builder(
                   physics: const BouncingScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: 60,
+                  itemCount: 3,
                   scrollDirection: Axis.vertical,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: const EdgeInsets.only(bottom:23.0),
+                      padding: const EdgeInsets.only(bottom: 23.0),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -196,7 +205,8 @@ class TrackOrderPage extends StatelessWidget {
                           SizedBox(
                             width: 10.w,
                           ),
-                          SizedBox(
+                          Container(
+                            padding: const EdgeInsets.all(10),
                             height: 70.h,
                             width: 240.w,
                             child: Column(
@@ -205,11 +215,11 @@ class TrackOrderPage extends StatelessWidget {
                               children: [
                                 Text(
                                   "Onion",
-                                style: GoogleFonts.poppins(
-                                  color:  Color(0xff2C2C2C),
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                                  style: GoogleFonts.poppins(
+                                    color: Color(0xff2C2C2C),
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                                 Row(
                                   mainAxisAlignment:
@@ -217,19 +227,19 @@ class TrackOrderPage extends StatelessWidget {
                                   children: [
                                     Text(
                                       "500 g x 2",
-                                       style: GoogleFonts.poppins(
-                                  color:  Color(0xff949494),
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                                      style: GoogleFonts.poppins(
+                                        color: Color(0xff949494),
+                                        fontSize: 12.sp,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                     Text(
                                       "₹1.23",
-                                     style: GoogleFonts.poppins(
-                                  color:  Color(0xff000000),
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                                      style: GoogleFonts.poppins(
+                                        color: Color(0xff000000),
+                                        fontSize: 12.sp,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -242,6 +252,92 @@ class TrackOrderPage extends StatelessWidget {
                     );
                   }),
 
+
+              Row(
+                children: List.generate(20, (index) {
+                  return Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: Container(
+                        height: 1,
+                        width: 10,
+                        color: Color(0XFF5A5A5A),
+                      ),
+                    ),
+                  );
+                }),
+              ),
+
+              SizedBox(height: 10.h,),
+
+              // Column(
+              //   children: [
+              //     Text("Bill Details",
+              //      style: GoogleFonts.poppins(
+              //     color: Color(0xff000000),
+              //     fontSize: 12.sp,
+              //     fontWeight: FontWeight.w500,
+              //   ),
+              //     )
+              //   ],
+              // )
+
+              ListTile(
+               dense: true,
+    contentPadding: EdgeInsets.zero,
+    visualDensity: VisualDensity(horizontal: 0, vertical: -4),
+                title: Text("Bill Details",
+                 style: GoogleFonts.poppins(
+                  color: Color(0xff000000),
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w500,
+                ),
+                ),
+              ),
+
+
+              ListTile(
+                 contentPadding: EdgeInsets.zero,
+    visualDensity: VisualDensity(horizontal: 0, vertical: -4),
+                title: Text("Item Total", style: GoogleFonts.poppins(
+                  color: Color(0xff5A5A5A),
+                  fontSize: 10.sp,
+                  fontWeight: FontWeight.w400,
+                ),),
+                trailing: Text("₹24.2",style: GoogleFonts.poppins(
+                  color: Color(0xff5A5A5A),
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w400,
+                ),),
+              ),
+              ListTile(
+                 contentPadding: EdgeInsets.zero,
+    visualDensity: VisualDensity(horizontal: 0, vertical: -4),
+                title: Text("Delivery partner fee",style: GoogleFonts.poppins(
+                  color: Color(0xff5A5A5A),
+                  fontSize: 10.sp,
+                  fontWeight: FontWeight.w400,
+                ),),
+                trailing: Text("₹24.2",style: GoogleFonts.poppins(
+                  color: Color(0xff5A5A5A),
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w400,
+                ),),
+              ),
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+    visualDensity: VisualDensity(horizontal: 0, vertical: -4),
+                title: Text("Discount Applied(abc123)",style: GoogleFonts.poppins(
+                  color: Color(0xff5A5A5A),
+                  fontSize: 10.sp,
+                  fontWeight: FontWeight.w400,
+                ),),
+                trailing: Text("₹24.2",style: GoogleFonts.poppins(
+                  color: Color(0xff5A5A5A),
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w400,
+                ),),
+              ),
 //!=================================================================================================
             ],
           ),
