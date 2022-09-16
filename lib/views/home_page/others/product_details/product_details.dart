@@ -14,19 +14,15 @@ class ProductDetails extends StatefulWidget {
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
-  final List<String> imgList = [
-    "https://cdn3d.iconscout.com/3d/premium/thumb/food-and-drink-5727926-4800418.png",
-    "https://cdn3d.iconscout.com/3d/premium/thumb/food-and-drink-5727926-4800418.png",
-    "https://cdn3d.iconscout.com/3d/premium/thumb/food-and-drink-5727926-4800418.png",
-  ];
   int current = 0;
   final CarouselController controller = CarouselController();
   int addToCard = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
           icon: const Icon(
@@ -42,49 +38,58 @@ class _ProductDetailsState extends State<ProductDetails> {
         alignment: Alignment.topCenter,
         children: [
           SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              CarouselSlider(
-                carouselController: controller,
-                options: CarouselOptions(
-                  initialPage: 0,
-                  enableInfiniteScroll: true,
-                  reverse: false,
-                  autoPlay: true,
-                  autoPlayInterval: const Duration(seconds: 10),
-                  autoPlayAnimationDuration: const Duration(milliseconds: 1000),
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                  enlargeCenterPage: true,
-                  scrollDirection: Axis.horizontal,
-                  height: 35.h,
-                  viewportFraction: 1.0,
-                  onPageChanged: (index, reason) {
-                    setState(() {
-                      current = index;
-                    });
-                  },
-                ),
-                items: imgList.map((i) {
-                  return Builder(
-                    builder: (BuildContext context) {
-                      return Container(
-                          width: 93.w,
-                          color: const Color.fromRGBO(245, 239, 240, 1),
-                          margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                          child: CustomPic(
-                              imageUrl: i, height: 35.h, width: 93.w));
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 12.w),
+                child: CarouselSlider(
+                  carouselController: controller,
+                  options: CarouselOptions(
+                    initialPage: 0,
+                    enableInfiniteScroll: true,
+                    reverse: false,
+                    autoPlay: true,
+                    autoPlayInterval: const Duration(seconds: 10),
+                    autoPlayAnimationDuration:
+                        const Duration(milliseconds: 1000),
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    enlargeCenterPage: true,
+                    scrollDirection: Axis.horizontal,
+                    height: 200.h,
+                    viewportFraction: 1.0,
+                    onPageChanged: (index, reason) {
+                      setState(() {
+                        current = index;
+                      });
                     },
-                  );
-                }).toList(),
+                  ),
+                  items: ConstantData.productimgList.map((i) {
+                    return Builder(
+                      builder: (BuildContext context) {
+                        return Container(
+                            width: double.infinity,
+                            color: const Color.fromRGBO(245, 239, 240, 1),
+                            margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                            child: CustomPic(
+                              imageUrl: i,
+                              height: 200.h,
+                              width: double.infinity,
+                            ));
+                      },
+                    );
+                  }).toList(),
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: imgList.asMap().entries.map((entry) {
+                children:
+                    ConstantData.productimgList.asMap().entries.map((entry) {
                   return GestureDetector(
                     onTap: () => controller.animateToPage(entry.key),
                     child: Container(
-                      width: 7.sp,
-                      height: 7.sp,
+                      width: 9.sp,
+                      height: 9.sp,
                       margin: const EdgeInsets.symmetric(
                           vertical: 7.0, horizontal: 4.0),
                       decoration: BoxDecoration(
@@ -97,7 +102,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 }).toList(),
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 4.w),
+                padding: EdgeInsets.symmetric(horizontal: 11.w),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -105,7 +110,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       'Onion (pyaz)',
                       style: GoogleFonts.poppins(
                           color: const Color.fromRGBO(44, 44, 44, 1),
-                          fontSize: 12.sp,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.w600),
                     ),
                     IconButton(
@@ -113,13 +118,13 @@ class _ProductDetailsState extends State<ProductDetails> {
                         icon: Icon(
                           Icons.share,
                           color: const Color.fromRGBO(0, 0, 0, 1),
-                          size: 16.sp,
+                          size: 14.sp,
                         ))
                   ],
                 ),
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 4.w),
+                padding: EdgeInsets.symmetric(horizontal: 13.w),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -129,14 +134,14 @@ class _ProductDetailsState extends State<ProductDetails> {
                         Text(
                           "500 gm",
                           style: GoogleFonts.poppins(
-                              fontSize: 8.5.sp,
+                              fontSize: 11.sp,
                               fontWeight: FontWeight.w500,
                               color: const Color.fromRGBO(148, 148, 148, 1)),
                         ),
                         Text(
                           "₹ 50",
                           style: GoogleFonts.poppins(
-                              fontSize: 12.sp,
+                              fontSize: 15.sp,
                               fontWeight: FontWeight.w600,
                               color: const Color.fromRGBO(44, 44, 44, 1)),
                         ),
@@ -150,8 +155,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                               });
                             }),
                             child: Container(
-                              height: 4.5.h,
-                              width: 21.w,
+                              height: 22.h,
+                              width: 60.w,
                               decoration: BoxDecoration(
                                 color: Colors.transparent,
                                 borderRadius: BorderRadius.circular(3),
@@ -172,8 +177,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             ),
                           )
                         : Container(
-                            height: 4.5.h,
-                            width: 21.w,
+                            width: 60.w,
                             decoration: BoxDecoration(
                                 color: Colors.green,
                                 borderRadius: BorderRadius.circular(3)),
@@ -191,24 +195,24 @@ class _ProductDetailsState extends State<ProductDetails> {
                                       });
                                     }),
                                     child: SizedBox(
-                                      width: 5.w,
-                                      height: 3.4.h,
+                                      width: 20.w,
+                                      height: 22.h,
                                       child: Icon(
                                         Icons.remove,
                                         color: Colors.white,
-                                        size: 11.sp,
+                                        size: 15.sp,
                                       ),
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 5.w,
-                                    height: 3.4.h,
+                                    width: 20.w,
+                                    height: 22.h,
                                     child: Center(
                                       child: Text(
                                         addToCard.toString(),
                                         overflow: TextOverflow.ellipsis,
                                         style: GoogleFonts.poppins(
-                                            fontSize: 10.sp,
+                                            fontSize: 12.sp,
                                             color: Colors.white,
                                             fontWeight: FontWeight.w400),
                                       ),
@@ -221,12 +225,14 @@ class _ProductDetailsState extends State<ProductDetails> {
                                       });
                                     }),
                                     child: SizedBox(
-                                      width: 5.w,
-                                      height: 3.4.h,
-                                      child: Icon(
-                                        Icons.add,
-                                        color: Colors.white,
-                                        size: 12.sp,
+                                      width: 20.w,
+                                      height: 22.h,
+                                      child: Center(
+                                        child: Icon(
+                                          Icons.add,
+                                          color: Colors.white,
+                                          size: 13.sp,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -238,7 +244,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.5.h),
+                padding: EdgeInsets.symmetric(horizontal: 13.w, vertical: 12.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -246,21 +252,21 @@ class _ProductDetailsState extends State<ProductDetails> {
                       'Product Details',
                       style: GoogleFonts.poppins(
                           color: const Color.fromRGBO(44, 44, 44, 1),
-                          fontSize: 10.sp,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.w600),
                     ),
                     Text(
                       'Description',
                       style: GoogleFonts.poppins(
                           color: const Color.fromRGBO(44, 44, 44, 1),
-                          fontSize: 8.sp,
+                          fontSize: 10.sp,
                           fontWeight: FontWeight.w500),
                     ),
                     SizedBox(
-                      height: 0.6.h,
+                      height: 5.h,
                     ),
                     ReadMoreText(
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nunc aliquam nunc, eget aliquam nunc nunc sit amet nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nunc aliquam nunc, eget aliquam nunc nunc sit amet nunc.',
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nunc aliquam nunc, eget aliquam nunc nunc sit amet nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nunc aliquam nunc, eget aliquam nunc nunc sit amet nunc.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nunc aliquam nunc, eget aliquam nunc nunc sit amet nunc. Sed euismod, nunc ut aliquam tincidunt, nunc nunc aliquam nunc, eget aliquam nunc nunc sit amet nunc.',
                       trimLines: 4,
                       colorClickableText:
                           const Color.fromARGB(192, 226, 10, 17),
@@ -274,60 +280,61 @@ class _ProductDetailsState extends State<ProductDetails> {
                       ),
                       style: GoogleFonts.poppins(
                           color: const Color.fromRGBO(148, 148, 148, 1),
-                          fontSize: 9.sp,
+                          fontSize: 10.5.sp,
                           fontWeight: FontWeight.w500),
                     ),
                     SizedBox(
-                      height: 1.8.h,
+                      height: 15.h,
                     ),
                     Text(
                       'View Similar Items',
                       style: GoogleFonts.poppins(
                           color: const Color.fromRGBO(0, 0, 0, 1),
-                          fontSize: 10.sp,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.w600),
                     ),
                     SizedBox(
-                      height: 1.3.h,
+                      height: 5.h,
                     ),
                   ],
                 ),
               ),
               SizedBox(
-                height: 28.5.h,
+                height: 165.h,
                 child: ListView.builder(
-                  itemCount: 5,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Padding(
-                      padding: EdgeInsets.only(left: 3.w),
-                      child: ProductCard(
+                    physics: const BouncingScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: 4,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: EdgeInsets.only(left: 10.w),
+                        child: ProductCard(
                           imageUrl:
-                              "https://cdn3d.iconscout.com/3d/premium/thumb/food-and-drink-5727926-4800418.png",
-                          title: "",
-                          disprice: 600,
-                          price: 201,
-                          quantity: 200,
-                          onChanged: (iteam) {},
+                              "https://img.freepik.com/free-photo/indian-chicken-biryani-served-terracotta-bowl-with-yogurt-white-background-selective-focus_466689-72554.jpg?w=996&t=st=1662382774~exp=1662383374~hmac=3195b0404799d307075e5326a2b654503021f07749f8327c762c38418dda67a7",
+                          title: "title",
+                          disprice: 200,
+                          price: 170,
+                          quantity: 500,
+                          onChanged: (String value) {},
                           ontap: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
                                         const ProductDetails()));
-                          }),
-                    );
-                  },
-                ),
+                          },
+                        ),
+                      );
+                    }),
               ),
               SizedBox(
-                height: 13.h,
+                height: 70.h,
               )
             ]),
           ),
           Positioned(
-            bottom: 2.h,
+            bottom: 10.h,
             child: AddtocartBar(
               iteamCount: 20,
               onTap: () {

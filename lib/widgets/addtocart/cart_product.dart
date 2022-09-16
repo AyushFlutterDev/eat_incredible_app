@@ -38,7 +38,7 @@ class _CartProductState extends State<CartProduct> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 93.w,
+      width: double.infinity,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -48,24 +48,24 @@ class _CartProductState extends State<CartProduct> {
                 borderRadius: BorderRadius.circular(5),
                 child: CustomPic(
                     imageUrl:
-                        "https://img.freepik.com/free-photo/schezwan-noodles-szechwan-vegetable-hakka-noodles-chow-mein-is-popular-indo-chinese-recipes-served-bowl-plate-with-wooden-chopsticks_466689-74647.jpg?w=900&t=st=1662966703~exp=1662967303~hmac=915b8fc1064819d87b411a7d359f7eb188df579d047e73d0f90e47384513ac7a",
-                    height: 8.h,
-                    width: 15.w),
+                        "https://img.freepik.com/free-photo/red-onion-whole-isolated-white_146671-19175.jpg?size=626&ext=jpg&ga=GA1.2.1083069314.1662365651",
+                    height: 53.h,
+                    width: 57.w),
               ),
-              SizedBox(width: 3.w),
+              SizedBox(width: 10.w),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text("Schezwan Noodles",
                       style: GoogleFonts.poppins(
-                        fontSize: 10.sp,
+                        fontSize: 12.sp,
                         fontWeight: FontWeight.w600,
                         color: const Color.fromRGBO(44, 44, 44, 1),
                       )),
                   SizedBox(height: 0.5.h),
                   Text("500 g",
                       style: GoogleFonts.poppins(
-                        fontSize: 6.5.sp,
+                        fontSize: 8.sp,
                         fontWeight: FontWeight.w500,
                         color: const Color.fromRGBO(148, 148, 148, 1),
                       )),
@@ -74,15 +74,15 @@ class _CartProductState extends State<CartProduct> {
                     children: [
                       Text("₹ 100",
                           style: GoogleFonts.poppins(
-                            fontSize: 10.sp,
+                            fontSize: 12.sp,
                             fontWeight: FontWeight.w600,
                             color: const Color.fromRGBO(44, 44, 44, 1),
                           )),
                       SizedBox(width: 2.5.w),
                       Text("₹ 100",
                           style: GoogleFonts.poppins(
-                            fontSize: 6.sp,
-                            fontWeight: FontWeight.w700,
+                            fontSize: 9.sp,
+                            fontWeight: FontWeight.w500,
                             color: const Color.fromRGBO(148, 148, 148, 1),
                             decoration: TextDecoration.lineThrough,
                           )),
@@ -101,8 +101,8 @@ class _CartProductState extends State<CartProduct> {
                     });
                   }),
                   child: Container(
-                    height: 3.5.h,
-                    width: 19.w,
+                    height: 22.h,
+                    width: 60.w,
                     decoration: BoxDecoration(
                       color: Colors.transparent,
                       borderRadius: BorderRadius.circular(3),
@@ -123,7 +123,7 @@ class _CartProductState extends State<CartProduct> {
                   ),
                 )
               : Container(
-                  width: 19.w,
+                  width: 60.w,
                   decoration: BoxDecoration(
                       color: Colors.green,
                       borderRadius: BorderRadius.circular(3)),
@@ -141,24 +141,24 @@ class _CartProductState extends State<CartProduct> {
                             });
                           }),
                           child: SizedBox(
-                            width: 5.w,
-                            height: 3.4.h,
+                            width: 20.w,
+                            height: 22.h,
                             child: Icon(
                               Icons.remove,
                               color: Colors.white,
-                              size: 11.sp,
+                              size: 15.sp,
                             ),
                           ),
                         ),
                         SizedBox(
-                          width: 5.w,
-                          height: 3.4.h,
+                          width: 20.w,
+                          height: 22.h,
                           child: Center(
                             child: Text(
                               addToCard.toString(),
                               overflow: TextOverflow.ellipsis,
                               style: GoogleFonts.poppins(
-                                  fontSize: 10.sp,
+                                  fontSize: 12.sp,
                                   color: Colors.white,
                                   fontWeight: FontWeight.w400),
                             ),
@@ -172,12 +172,14 @@ class _CartProductState extends State<CartProduct> {
                             });
                           }),
                           child: SizedBox(
-                            width: 5.w,
-                            height: 3.4.h,
-                            child: Icon(
-                              Icons.add,
-                              color: Colors.white,
-                              size: 12.sp,
+                            width: 20.w,
+                            height: 22.h,
+                            child: Center(
+                              child: Icon(
+                                Icons.add,
+                                color: Colors.white,
+                                size: 13.sp,
+                              ),
                             ),
                           ),
                         ),

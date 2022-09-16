@@ -12,11 +12,12 @@ class _FilterBarState extends State<FilterBar> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 20.w,
+      width: 75.w,
+      height: double.infinity,
       child: ListView.builder(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        itemCount: 9,
+        itemCount: ConstantData.vegCategory.length,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () {
@@ -33,19 +34,18 @@ class _FilterBarState extends State<FilterBar> {
                     Padding(
                       padding: EdgeInsets.all(8.0.sp),
                       child: CustomPic(
-                          imageUrl:
-                              "https://cdn3d.iconscout.com/3d/premium/thumb/food-and-drink-5727926-4800418.png",
-                          height: 13.w,
-                          width: 13.w),
+                          imageUrl: ConstantData.vegCategory[index]["image"],
+                          height: 38.h,
+                          width: 40.w),
                     ),
-                    Text("Green Salad",
+                    Text(ConstantData.vegCategory[index]["name"],
                         textAlign: TextAlign.center,
                         style: GoogleFonts.poppins(
                             color: index == filterIteam
                                 ? Colors.white
                                 : const Color.fromRGBO(120, 120, 120, 1.0),
-                            fontSize: 9.sp,
-                            fontWeight: FontWeight.w600)),
+                            fontSize: 10.sp,
+                            fontWeight: FontWeight.w400)),
                   ],
                 )),
           );

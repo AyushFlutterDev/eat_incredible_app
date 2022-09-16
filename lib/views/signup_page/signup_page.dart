@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:eat_incredible_app/utils/barrel.dart';
+import 'package:eat_incredible_app/views/home_page/navigation/navigation.dart';
 import 'package:eat_incredible_app/views/verification_page/verification_page.dart';
+import 'package:country_calling_code_picker/picker.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -10,6 +12,18 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
+  Country? selectedCountry;
+
+  void _showCountryPicker() async {
+    final country = await showCountryPickerSheet(context, cornerRadius: 15);
+    if (country != null) {
+      setState(() {
+        selectedCountry = country;
+      });
+    }
+  }
+
+  ConstantData constantData = ConstantData();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,11 +77,11 @@ class _SignupPageState extends State<SignupPage> {
                 autoPlay: true,
                 autoPlayInterval: const Duration(seconds: 5),
               ),
-              items: [1, 2, 3].map((i) {
+              items: constantData.signupPageBanner.map((image) {
                 return Builder(
                   builder: (BuildContext context) {
                     return Image.asset(
-                      "assets/images/signup_pic_$i.png",
+                      image,
                       fit: BoxFit.cover,
                     );
                   },
@@ -124,10 +138,13 @@ class _SignupPageState extends State<SignupPage> {
                 child: Row(
                   children: [
                     GestureDetector(
-                      onTap: (() {}),
+                      onTap: (() {
+                        _showCountryPicker();
+                      }),
                       child: SizedBox(
                         width: 60.w,
-                        child: const Center(child: Text("+91")),
+                        child: Center(
+                            child: Text(selectedCountry?.callingCode ?? '+91')),
                       ),
                     ),
                     Container(
@@ -191,13 +208,19 @@ class _SignupPageState extends State<SignupPage> {
             SizedBox(
               height: 10.h,
             ),
-            Text(
-              'Skip Log In',
-              style: GoogleFonts.poppins(
-                fontSize: 12.sp,
-                fontWeight: FontWeight.normal,
+            TextButton(
+              onPressed: () {
+                Get.off(() => const Navigation());
+              },
+              child: Text(
+                'Skip Log In',
+                style: GoogleFonts.poppins(
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.normal,
+                  color: const Color(0xff3C3C43),
+                ),
               ),
-            ),
+            )
           ],
         ),
       ),

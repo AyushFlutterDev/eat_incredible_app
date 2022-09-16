@@ -4,3 +4,4 @@ export 'package:get_it/get_it.dart';
 export 'package:provider/provider.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:get/get.dart';
+export 'package:eat_incredible_app/constant/data/data.dart';
