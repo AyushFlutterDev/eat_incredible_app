@@ -33,7 +33,7 @@ class OrderPage extends StatelessWidget {
                         log("view details");
                       },
                       trackOrder: () {
-                        Get.to(() => const TrackOrderPage());
+                        Get.to(() =>  TrackOrderPage());
                         log("track order");
                       }),
                 ),
