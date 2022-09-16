@@ -1,6 +1,7 @@
-import 'dart:developer';
 import 'package:animate_do/animate_do.dart';
 import 'package:eat_incredible_app/utils/barrel.dart';
+import 'package:eat_incredible_app/views/home_page/others/Item_search/item_search.dart';
+import 'package:eat_incredible_app/views/home_page/others/cart_page/cart_page.dart';
 import 'package:eat_incredible_app/views/home_page/others/product_details/product_details.dart';
 import 'package:eat_incredible_app/widgets/addtocart/addtocart_bar.dart';
 import 'package:eat_incredible_app/widgets/filter/filter_bar.dart';
@@ -52,13 +53,16 @@ class _FilterPageState extends State<FilterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0.5,
         backgroundColor: const Color.fromRGBO(255, 255, 255, 1.0),
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_ios,
             color: Color.fromRGBO(0, 0, 0, 1),
           ),
-          onPressed: () {},
+          onPressed: () {
+            Get.back();
+          },
         ),
         title: Center(
             child: Text(
@@ -74,7 +78,9 @@ class _FilterPageState extends State<FilterPage> {
               Icons.search,
               color: Color.fromRGBO(97, 97, 97, 1),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Get.to(() => const ItemSearch());
+            },
           ),
         ],
       ),
@@ -82,53 +88,45 @@ class _FilterPageState extends State<FilterPage> {
         alignment: Alignment.topCenter,
         children: [
           SizedBox(
-            height: 100.h,
-            width: 100.w,
+            height: double.infinity,
+            width: double.infinity,
             child: Row(
               children: [
                 const FilterBar(),
                 Expanded(
-                  child: SizedBox(
-                    width: 70.w,
-                    child: ListView.builder(
-                        controller: _scrollController,
-                        physics: const BouncingScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: 40,
-                        scrollDirection: Axis.vertical,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: EdgeInsets.only(left: 4.w),
-                            child: SizedBox(
-                              height: 30.h,
-                              child: ProductCard(
+                  child: GridView.builder(
+                      controller: _scrollController,
+                      itemCount: 300,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        mainAxisExtent: 165.h,
+                        crossAxisCount: 2,
+                      ),
+                      itemBuilder: (BuildContext context, int index) {
+                        return FadeInUp(
+                            child: ProductCard(
                                 imageUrl:
-                                    "https://img.freepik.com/free-photo/indian-chicken-biryani-served-terracotta-bowl-with-yogurt-white-background-selective-focus_466689-72554.jpg?w=996&t=st=1662382774~exp=1662383374~hmac=3195b0404799d307075e5326a2b654503021f07749f8327c762c38418dda67a7",
-                                title: "title",
-                                disprice: 200,
-                                price: 170,
-                                quantity: 500,
-                                onChanged: (String value) {},
+                                    "https://img.freepik.com/free-vector/realistic-tomato-isolated_1284-6146.jpg?size=338&ext=jpg&ga=GA1.2.1083069314.1662365651",
+                                title: "Green salad",
+                                disprice: 300,
+                                price: 220,
+                                quantity: 300,
+                                onChanged: (value) {},
                                 ontap: () {
                                   Get.to(() => const ProductDetails());
-                                },
-                              ),
-                            ),
-                          );
-                        }),
-                  ),
+                                }));
+                      }),
                 ),
               ],
             ),
           ),
           Positioned(
-            bottom: 2.h,
+            bottom: 10.h,
             child: _show
                 ? SlideInUp(
                     child: AddtocartBar(
                       iteamCount: 20,
                       onTap: () {
-                        log("nothing");
+                        Get.to(() => const CartPage());
                       },
                       totalAmount: 100.0,
                     ),
@@ -138,7 +136,7 @@ class _FilterPageState extends State<FilterPage> {
                     child: AddtocartBar(
                       iteamCount: 20,
                       onTap: () {
-                        log("nothing");
+                        Get.to(() => const CartPage());
                       },
                       totalAmount: 100.0,
                     ),

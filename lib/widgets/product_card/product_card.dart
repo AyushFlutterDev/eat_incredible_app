@@ -40,7 +40,7 @@ class _ProductCardState extends State<ProductCard> {
             width: 0.5.w,
           ),
         ),
-        width: 135.w,
+        width: 130.w,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

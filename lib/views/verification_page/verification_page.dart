@@ -3,15 +3,21 @@ import 'package:eat_incredible_app/utils/barrel.dart';
 import 'package:eat_incredible_app/views/home_page/navigation/navigation.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-class VerificationPage extends StatelessWidget {
+class VerificationPage extends StatefulWidget {
   const VerificationPage({super.key});
 
   @override
+  State<VerificationPage> createState() => _VerificationPageState();
+}
+
+class _VerificationPageState extends State<VerificationPage> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_ios,
@@ -65,12 +71,13 @@ class VerificationPage extends StatelessWidget {
                       animationType: AnimationType.fade,
                       pinTheme: PinTheme(
                         shape: PinCodeFieldShape.box,
+                        selectedColor: const Color.fromARGB(68, 255, 0, 0),
                         borderRadius: BorderRadius.circular(5),
                         fieldHeight: 50,
                         fieldWidth: 50,
                       ),
                       animationDuration: const Duration(milliseconds: 300),
-                      backgroundColor: Colors.transparent,
+                      backgroundColor: const Color.fromARGB(0, 255, 3, 3),
                       enableActiveFill: false,
                       onCompleted: (v) {
                         log("Completed");
@@ -80,8 +87,6 @@ class VerificationPage extends StatelessWidget {
                       },
                       beforeTextPaste: (text) {
                         log("Allowing to paste $text");
-                        //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
-                        //but you can show anything you want here, like your pop up saying wrong paste format or etc
                         return true;
                       },
                     ),
@@ -100,9 +105,7 @@ class VerificationPage extends StatelessWidget {
                           ),
                         ),
                         GestureDetector(
-                          onTap: () {
-                            log("resent");
-                          },
+                          onTap: () {},
                           child: Text(
                             'Resend OTP',
                             style: GoogleFonts.poppins(

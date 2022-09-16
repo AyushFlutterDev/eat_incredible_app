@@ -14,11 +14,6 @@ class ProductDetails extends StatefulWidget {
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
-  final List<String> imgList = [
-    "https://img.freepik.com/free-photo/red-onion-whole-isolated-white_146671-19175.jpg?size=626&ext=jpg&ga=GA1.2.1083069314.1662365651",
-    "https://img.freepik.com/free-photo/raw-beef-steaks-isolated-white-background_185193-72643.jpg?size=626&ext=jpg&ga=GA1.2.1083069314.1662365651",
-    "https://img.freepik.com/premium-vector/red-onion-bulbs-with-chopped-green-onions_212889-2653.jpg?size=338&ext=jpg&ga=GA1.2.1083069314.1662365651",
-  ];
   int current = 0;
   final CarouselController controller = CarouselController();
   int addToCard = 0;
@@ -27,7 +22,7 @@ class _ProductDetailsState extends State<ProductDetails> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
           icon: const Icon(
@@ -69,7 +64,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       });
                     },
                   ),
-                  items: imgList.map((i) {
+                  items: ConstantData.productimgList.map((i) {
                     return Builder(
                       builder: (BuildContext context) {
                         return Container(
@@ -88,7 +83,8 @@ class _ProductDetailsState extends State<ProductDetails> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: imgList.asMap().entries.map((entry) {
+                children:
+                    ConstantData.productimgList.asMap().entries.map((entry) {
                   return GestureDetector(
                     onTap: () => controller.animateToPage(entry.key),
                     child: Container(
@@ -322,7 +318,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                           quantity: 500,
                           onChanged: (String value) {},
                           ontap: () {
-                            Get.to(() => const ProductDetails());
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const ProductDetails()));
                           },
                         ),
                       );

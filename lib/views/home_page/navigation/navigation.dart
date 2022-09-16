@@ -32,7 +32,7 @@ class _NavigationState extends State<Navigation> {
             ? const CustomAppbar()
             : pageIndex == 2
                 ? AppBar(
-                    backgroundColor: Colors.transparent,
+                    backgroundColor: Colors.white,
                     elevation: 0,
                     leading: IconButton(
                       onPressed: () {
@@ -55,12 +55,14 @@ class _NavigationState extends State<Navigation> {
                         ),
                       ),
                     ),
-                    actions: const [Text("Need Help?")],
+                    actions: const [
+                      Opacity(opacity: 0, child: Text("Need Help?"))
+                    ],
                   )
                 : AppBar(
                     leading: const Text(""),
                     elevation: 0,
-                    backgroundColor: Colors.transparent,
+                    backgroundColor: Colors.white,
                     title: Center(
                       child: Text(
                         "Hi Bolder",

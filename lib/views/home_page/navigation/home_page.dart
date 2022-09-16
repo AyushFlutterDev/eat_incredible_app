@@ -26,8 +26,7 @@ class _HomePageState extends State<HomePage> {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 10.w),
               child: CustomPic(
-                imageUrl:
-                    "https://img.freepik.com/free-vector/cartoon-indian-restaurant-background_52683-69329.jpg?w=740&t=st=1662368268~exp=1662368868~hmac=856685abe2bd49b8068f6338350ff16c16e531196bc0cbb4c4961b341e0c7462",
+                imageUrl: "https://i.imgur.com/dt6mgQ3.png",
                 height: 120.h,
                 width: double.infinity,
               ),
@@ -44,7 +43,7 @@ class _HomePageState extends State<HomePage> {
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: true,
-                  itemCount: 40,
+                  itemCount: ConstantData.vegCategory.length,
                   itemBuilder: (BuildContext context, int index) {
                     return GestureDetector(
                       onTap: () {
@@ -56,11 +55,11 @@ class _HomePageState extends State<HomePage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               CustomPic(
-                                  imageUrl:
-                                      "https://cdn3d.iconscout.com/3d/premium/thumb/pumpkin-5294219-4431744.png",
-                                  height: 44.h,
-                                  width: 50.w),
-                              Text("Green Beans",
+                                  imageUrl: ConstantData.vegCategory[index]
+                                      ["image"],
+                                  height: 40.h,
+                                  width: 55.w),
+                              Text(ConstantData.vegCategory[index]["name"],
                                   style: GoogleFonts.poppins(
                                       fontSize: 12.sp,
                                       color: Colors.black,
@@ -75,8 +74,7 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 20.h),
               child: CustomPic(
-                  imageUrl:
-                      "https://img.freepik.com/free-vector/chinese-food-background-illustrated_52683-68274.jpg?w=1060&t=st=1662373740~exp=1662374340~hmac=0ff618729f93737903196d5c2516a808107b8a39747af5fbe71ec394d97a5ca1",
+                  imageUrl: "https://i.imgur.com/AL3Ra5Q.png",
                   height: 130.h,
                   width: double.infinity),
             ),
@@ -148,8 +146,7 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
               child: CustomPic(
-                  imageUrl:
-                      "https://img.freepik.com/free-vector/chinese-food-background-illustrated_52683-68275.jpg?w=1060&t=st=1662373968~exp=1662374568~hmac=397d2798c6883b1353ff3c8a7324f07d412350806592a8b267a922adec79c823",
+                  imageUrl: "https://i.imgur.com/7v4Vgbh.png",
                   height: 150.h,
                   width: double.infinity),
             ),

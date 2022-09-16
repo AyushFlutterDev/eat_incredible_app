@@ -42,7 +42,6 @@ dependencies:
   google_fonts: ^3.0.1
   lottie: ^1.4.2
   flutter_screenutil: ^5.5.4
-  country_pickers: ^2.0.0
   fading_images_slider: ^0.0.4
   carousel_slider: ^4.1.1
   cached_network_image: ^3.2.0
@@ -53,6 +52,8 @@ dependencies:
   animations: ^2.0.4
   timeline_tile: ^2.0.0
   cart_stepper: ^3.0.2
+  country_calling_code_picker: ^2.0.1
+  counter_button: ^1.0.1
 
 dev_dependencies:
   flutter_test:

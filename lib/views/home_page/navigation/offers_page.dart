@@ -8,49 +8,64 @@ class OfferPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: 10.w,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 2.h,
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 10.h),
-                child: CustomPic(
-                    imageUrl:
-                        "https://img.freepik.com/free-vector/cartoon-indian-restaurant-background_52683-69329.jpg?w=740&t=st=1662368268~exp=1662368868~hmac=856685abe2bd49b8068f6338350ff16c16e531196bc0cbb4c4961b341e0c7462",
-                    height: 130.h,
-                    width: double.infinity),
-              ),
-              SizedBox(
-                height: 1.5.h,
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 3.w, bottom: 1.h),
-                child: Text("Great Deals",
-                    style: GoogleFonts.poppins(
-                        fontSize: 16.sp, fontWeight: FontWeight.bold)),
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 10.h),
-                child: CustomPic(
-                    imageUrl:
-                        "https://img.freepik.com/free-vector/cartoon-indian-restaurant-background_52683-69329.jpg?w=740&t=st=1662368268~exp=1662368868~hmac=856685abe2bd49b8068f6338350ff16c16e531196bc0cbb4c4961b341e0c7462",
-                    height: 130.h,
-                    width: double.infinity),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 3.w, top: 2.h),
-                child: Text("Only for you",
-                    style: GoogleFonts.poppins(
-                        fontSize: 16.sp, fontWeight: FontWeight.bold)),
-              ),
-            ],
-          ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 2.h,
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
+              child: CustomPic(
+                  imageUrl: "https://i.imgur.com/83570mV.png",
+                  height: 130.h,
+                  width: double.infinity),
+            ),
+            SizedBox(
+              height: 10.h,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 10.w, bottom: 15.h),
+              child: Text("Great Deals",
+                  style: GoogleFonts.poppins(
+                      fontSize: 16.sp, fontWeight: FontWeight.bold)),
+            ),
+            SizedBox(
+              height: 70.h,
+              child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: ConstantData.offers.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.only(left: 10.w),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10.sp),
+                        child: CustomPic(
+                            imageUrl: ConstantData.offers[index],
+                            height: 70.h,
+                            width: 130.w),
+                      ),
+                    );
+                  }),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 10.w, top: 13.h, bottom: 3.h),
+              child: Text("Only for you",
+                  style: GoogleFonts.poppins(
+                      fontSize: 16.sp, fontWeight: FontWeight.bold)),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 10.w),
+              child: CustomPic(
+                  imageUrl: "https://i.imgur.com/StouOjH.png",
+                  height: 130.h,
+                  width: double.infinity),
+            ),
+            SizedBox(
+              height: 50.h,
+            )
+          ],
         ),
       ),
     );

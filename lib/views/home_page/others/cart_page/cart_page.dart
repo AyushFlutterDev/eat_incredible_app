@@ -19,9 +19,10 @@ class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        elevation: 2,
+        elevation: 0,
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_ios,
