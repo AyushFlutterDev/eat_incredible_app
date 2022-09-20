@@ -55,7 +55,7 @@ dependencies:
   pdf: ^3.8.3
   printing: ^5.9.3
   country_calling_code_picker: ^2.0.1
-  counter_button: ^1.0.1
+  dio: ^4.0.6
 
 dev_dependencies:
   flutter_test:

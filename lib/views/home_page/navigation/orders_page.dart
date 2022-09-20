@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:eat_incredible_app/utils/barrel.dart';
+import 'package:eat_incredible_app/views/home_page/others/order_receipt/order_receipt.dart';
 import 'package:eat_incredible_app/views/home_page/others/track_order/track_order_page.dart';
 import 'package:eat_incredible_app/widgets/order/order_card.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -30,10 +31,10 @@ class OrderPage extends StatelessWidget {
                       orderTotal: "2,000",
                       orderQuantity: "21",
                       viewDetails: () {
-                        log("view details");
+                        Get.to(() => OrderReceiptPage());
                       },
                       trackOrder: () {
-                        Get.to(() =>  TrackOrderPage());
+                        Get.to(() => TrackOrderPage());
                         log("track order");
                       }),
                 ),

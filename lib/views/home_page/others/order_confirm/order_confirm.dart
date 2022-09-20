@@ -1,5 +1,6 @@
 import 'package:eat_incredible_app/utils/barrel.dart';
 import 'package:eat_incredible_app/views/home_page/navigation/navigation.dart';
+import 'package:eat_incredible_app/views/home_page/others/order_bill/order_bill.dart';
 
 class OrderConfirmPage extends StatelessWidget {
   const OrderConfirmPage({super.key});
@@ -52,25 +53,33 @@ class OrderConfirmPage extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 30.h),
-              ListTile(
-                title: Text(
-                  'Order ID',
-                  style: GoogleFonts.poppins(
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.w600,
-                    color: const Color(0xff000000),
-                  ),
-                ),
-                trailing: TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'View details',
-                    style: GoogleFonts.poppins(
-                      fontSize: 10.sp,
-                      fontWeight: FontWeight.w400,
-                      color: const Color(0xffE20A13),
+              Container(
+                padding: EdgeInsets.only(left: 5.w, right: 5.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Order ID',
+                      style: GoogleFonts.poppins(
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w600,
+                        color: const Color(0xff000000),
+                      ),
                     ),
-                  ),
+                    TextButton(
+                      onPressed: () {
+                        Get.to(() => const OrderBill());
+                      },
+                      child: Text(
+                        'View details',
+                        style: GoogleFonts.poppins(
+                          fontSize: 10.sp,
+                          fontWeight: FontWeight.w400,
+                          color: const Color(0xffE20A13),
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               ),
               Container(
