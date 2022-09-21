@@ -34,7 +34,7 @@ class OrderPage extends StatelessWidget {
                         Get.to(() => OrderReceiptPage());
                       },
                       trackOrder: () {
-                        Get.to(() => TrackOrderPage());
+                        Get.to(() => const TrackOrderPage());
                         log("track order");
                       }),
                 ),

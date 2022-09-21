@@ -2,38 +2,35 @@
 
 import 'package:eat_incredible_app/utils/barrel.dart';
 import 'package:eat_incredible_app/widgets/banner/custom_banner.dart';
-import 'package:pdf/pdf.dart';
-import 'package:pdf/widgets.dart' as pw;
-import 'package:printing/printing.dart';
 
 class OrderReceiptPage extends StatelessWidget {
   OrderReceiptPage({super.key});
   final GlobalKey<State<StatefulWidget>> _printKey = GlobalKey();
 
-  //!=========================== Funtion for widget to pdf ======================================================
-  void _printScreen() {
-    Printing.layoutPdf(onLayout: (PdfPageFormat format) async {
-      final doc = pw.Document();
+  // //!=========================== Funtion for widget to pdf ======================================================
+  // void _printScreen() {
+  //   Printing.layoutPdf(onLayout: (PdfPageFormat format) async {
+  //     final doc = pw.Document();
 
-      final image = await WidgetWraper.fromKey(
-        key: _printKey,
-        pixelRatio: 2.0,
-      );
+  //     final image = await WidgetWraper.fromKey(
+  //       key: _printKey,
+  //       pixelRatio: 2.0,
+  //     );
 
-      doc.addPage(pw.Page(
-          pageFormat: format,
-          build: (pw.Context context) {
-            return pw.Center(
-              child: pw.Expanded(
-                child: pw.Image(image),
-              ),
-            );
-          }));
+  //     doc.addPage(pw.Page(
+  //         pageFormat: format,
+  //         build: (pw.Context context) {
+  //           return pw.Center(
+  //             child: pw.Expanded(
+  //               child: pw.Image(image),
+  //             ),
+  //           );
+  //         }));
 
-      return doc.save();
-    });
-  }
-  //!=================================================================================================
+  //     return doc.save();
+  //   });
+  // }
+  // //!=================================================================================================
 
   @override
   Widget build(BuildContext context) {
