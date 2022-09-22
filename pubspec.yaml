@@ -65,6 +65,7 @@ dependencies:
   freezed_annotation: ^2.1.0
   intl: ^0.17.0
   json_serializable: ^6.3.2
+  video_player: ^2.4.7
  
 
 dev_dependencies:
@@ -93,7 +94,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
-  #   - assets/animation
+    - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

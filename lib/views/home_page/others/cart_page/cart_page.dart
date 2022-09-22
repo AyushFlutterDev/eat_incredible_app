@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:eat_incredible_app/utils/barrel.dart';
+import 'package:eat_incredible_app/views/home_page/others/coupon_code/coupon_code.dart';
 import 'package:eat_incredible_app/views/home_page/others/location_search/location_search.dart';
 import 'package:eat_incredible_app/views/home_page/others/order_confirm/order_confirm.dart';
 import 'package:eat_incredible_app/views/home_page/others/product_details/product_details.dart';
@@ -195,7 +196,7 @@ class _CartPageState extends State<CartPage> {
               padding: EdgeInsets.symmetric(horizontal: 13.w),
               child: UseCouponCard(
                 onTap: () {
-                  log("Use Coupon");
+                  Get.to(() => const CouponsCode());
                 },
                 isApplyCoupon: false,
                 onTapremove: () {

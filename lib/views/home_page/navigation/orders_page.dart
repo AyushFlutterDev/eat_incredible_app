@@ -11,6 +11,7 @@ class OrderPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: AnimationLimiter(
         child: ListView.builder(
           itemCount: 10,
@@ -31,7 +32,7 @@ class OrderPage extends StatelessWidget {
                       orderTotal: "2,000",
                       orderQuantity: "21",
                       viewDetails: () {
-                        Get.to(() => OrderReceiptPage());
+                        Get.to(() => const OrderReceiptPage());
                       },
                       trackOrder: () {
                         Get.to(() => const TrackOrderPage());

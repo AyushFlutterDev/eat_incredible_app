@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eat_incredible_app/utils/barrel.dart';
-import 'package:eat_incredible_app/views/signup_page/signup_page.dart';
+import 'package:eat_incredible_app/views/splash_screen/splash_screen.dart';
 
 void main() {
   CachedNetworkImage.logLevel = CacheManagerLogLevel.debug;
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(useMaterial3: true),
             debugShowCheckedModeBanner: false,
             title: 'Eat incredible App',
-            home: const SignupPage(),
+            home: const SplashScreen(),
           );
         });
   }
