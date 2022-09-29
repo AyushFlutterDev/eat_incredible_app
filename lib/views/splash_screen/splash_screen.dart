@@ -1,7 +1,8 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:eat_incredible_app/utils/barrel.dart';
-import 'package:eat_incredible_app/views/home_page/navigation/navigation.dart';
+import 'package:eat_incredible_app/views/signup_page/signup_page.dart';
 import 'package:video_player/video_player.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -20,12 +21,17 @@ class _SplashScreenState extends State<SplashScreen> {
       ..initialize().then((_) {
         _controller.play();
         _controller.setLooping(false);
-        _controller.setPlaybackSpeed(1.6);
+        _controller.setPlaybackSpeed(1.0);
         setState(() {});
       });
-
-    Timer(const Duration(milliseconds: 3020), () {
-      Get.off(() => const Navigation());
+    // _controller.addListener(() {
+    //   if (_controller.value.position == _controller.value.duration) {
+    //     Get.off(() => const SignupPage());
+    //   }
+    // });
+    log(_controller.value.position.inMilliseconds.toString());
+    Timer(const Duration(milliseconds: 3300), () {
+      Get.off(() => const SignupPage());
     });
 
     super.initState();

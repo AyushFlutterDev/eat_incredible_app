@@ -9,7 +9,7 @@ class ApiHelper {
 
   setUpOptions() {
     baseOptions = BaseOptions(
-      baseUrl: 'https://api.themoviedb.org/3/',
+      baseUrl: 'http://localhost/eatincredible/api/',
       connectTimeout: 5000,
       receiveTimeout: 3000,
     );
