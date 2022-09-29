@@ -1,7 +1,7 @@
 class UrlRepo {
-  static const loginUrl = "check-in";
-  static const addTocartUrl = 'companyname';
-  static const login = 'login';
-  static const register = 'register';
-  static const logout = 'logout';
+  static const register = "register.php";
+  static const category = 'category.php';
+  static const product = 'product.php';
+  static String productDetail(String productid) =>
+      'eachProduct.php?id=$productid';
 }

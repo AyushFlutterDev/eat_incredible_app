@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:eat_incredible_app/controller/iteam_bloc/itemsdemo_bloc.dart';
 import 'package:eat_incredible_app/utils/barrel.dart';
 import 'package:eat_incredible_app/views/splash_screen/splash_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   CachedNetworkImage.logLevel = CacheManagerLogLevel.debug;
@@ -16,11 +18,16 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {
-          return GetMaterialApp(
-            theme: ThemeData(useMaterial3: true),
-            debugShowCheckedModeBanner: false,
-            title: 'Eat incredible App',
-            home: const SplashScreen(),
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider<ItemsdemoBloc>(create: (context) => ItemsdemoBloc()),
+            ],
+            child: GetMaterialApp(
+              theme: ThemeData(useMaterial3: true),
+              debugShowCheckedModeBanner: false,
+              title: 'Eat incredible App',
+              home: const SplashScreen(),
+            ),
           );
         });
   }

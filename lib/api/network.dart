@@ -4,16 +4,13 @@ import 'package:eat_incredible_app/repo/url_repo.dart';
 
 class Network {
   final client = ApiHelper();
-
-  Future<Response> organizationList(String url) async {
-    return await client.getRequest(UrlRepo.loginUrl);
+  Future<Response> login(int phoneNumber) async {
+    return await client.postRequest(UrlRepo.login, data: {
+      'phoneNumber': phoneNumber,
+    });
   }
 
-  Future getOrganizationDetails(String url) async {
-    return await client.postRequest(
-      url,
-      data: {},
-    );
+  Future<Response> listItemsDemo() async {
+    return await client.getRequest(UrlRepo.product);
   }
-  
 }
