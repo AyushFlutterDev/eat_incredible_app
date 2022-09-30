@@ -1,8 +1,11 @@
+import 'package:eat_incredible_app/controller/category/category_bloc.dart';
 import 'package:eat_incredible_app/utils/barrel.dart';
+import 'package:eat_incredible_app/utils/messsenger.dart';
 import 'package:eat_incredible_app/views/home_page/others/filter_page/filter_page.dart';
 import 'package:eat_incredible_app/views/home_page/others/product_details/product_details.dart';
 import 'package:eat_incredible_app/widgets/product_card/product_card.dart';
 import 'package:eat_incredible_app/widgets/banner/custom_banner.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -36,39 +39,62 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 10.w),
-              child: SizedBox(
-                height: 70.h,
-                width: double.infinity,
-                child: ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  itemCount: ConstantData.vegCategory.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return GestureDetector(
-                      onTap: () {
-                        Get.to(() => const FilterPage());
-                      },
-                      child: Card(
-                          elevation: 0,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              CustomPic(
-                                  imageUrl: ConstantData.vegCategory[index]
-                                      ["image"],
-                                  height: 40.h,
-                                  width: 55.w),
-                              Text(ConstantData.vegCategory[index]["name"],
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 12.sp,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.normal)),
-                            ],
-                          )),
+              child: BlocConsumer<CategoryBloc, CategoryState>(
+                bloc: context.read<CategoryBloc>(),
+                listener: (context, state) {
+                  state.when(
+                      initial: () {},
+                      loading: () {},
+                      loaded: (_) {},
+                      failure: (e) {
+                        CustomSnackbar.errorSnackbar("Error", e);
+                      });
+                },
+                builder: (context, state) {
+                  return state.maybeWhen(orElse: () {
+                    return SizedBox(
+                        height: 70.h,
+                        child:
+                            const Center(child: CircularProgressIndicator()));
+                  }, loaded: (category) {
+                    return SizedBox(
+                      height: 70.h,
+                      width: double.infinity,
+                      child: ListView.builder(
+                        physics: const BouncingScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        itemCount: category.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return GestureDetector(
+                            onTap: () {
+                              Get.to(() => const FilterPage());
+                            },
+                            child: Card(
+                                elevation: 0,
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    CustomPic(
+                                        imageUrl: category[index]
+                                            .thumbnail
+                                            .toString(),
+                                        height: 40.h,
+                                        width: 55.w),
+                                    Text(category[index].name.toString(),
+                                        style: GoogleFonts.poppins(
+                                            fontSize: 12.sp,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.normal)),
+                                  ],
+                                )),
+                          );
+                        },
+                      ),
                     );
-                  },
-                ),
+                  });
+                },
               ),
             ),
             Padding(
