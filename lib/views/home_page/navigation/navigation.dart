@@ -1,4 +1,5 @@
 import 'package:animations/animations.dart';
+import 'package:eat_incredible_app/controller/category/category_bloc.dart';
 import 'package:eat_incredible_app/utils/barrel.dart';
 import 'package:eat_incredible_app/views/home_page/navigation/acount_page.dart';
 import 'package:eat_incredible_app/views/home_page/navigation/home_page.dart';
@@ -13,6 +14,16 @@ class Navigation extends StatefulWidget {
 }
 
 class _NavigationState extends State<Navigation> {
+  @override
+  void initState() {
+    getData();
+    super.initState();
+  }
+
+  void getData() {
+    context.read<CategoryBloc>().add(const CategoryEvent.getCategory());
+  }
+
   int pageIndex = 0;
   final pages = [
     const HomePage(),
