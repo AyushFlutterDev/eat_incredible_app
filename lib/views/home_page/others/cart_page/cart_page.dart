@@ -177,12 +177,13 @@ class _CartPageState extends State<CartPage> {
                     return Padding(
                       padding: EdgeInsets.only(left: 13.w),
                       child: ProductCard(
+                        percentage: '20%',
                         imageUrl:
                             "https://img.freepik.com/free-photo/indian-chicken-biryani-served-terracotta-bowl-with-yogurt-white-background-selective-focus_466689-72554.jpg?w=996&t=st=1662382774~exp=1662383374~hmac=3195b0404799d307075e5326a2b654503021f07749f8327c762c38418dda67a7",
                         title: "title",
-                        disprice: 200,
-                        price: 170,
-                        quantity: 500,
+                        disprice: "200",
+                        price: "200",
+                        quantity: "200",
                         onChanged: (String value) {},
                         ontap: () {
                           Get.to(() => const ProductDetails());

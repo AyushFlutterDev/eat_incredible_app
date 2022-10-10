@@ -1,4 +1,5 @@
 import 'package:eat_incredible_app/controller/category/category_bloc.dart';
+import 'package:eat_incredible_app/controller/product_list/product_list_bloc.dart';
 import 'package:eat_incredible_app/utils/barrel.dart';
 import 'package:eat_incredible_app/utils/messsenger.dart';
 import 'package:eat_incredible_app/views/home_page/others/filter_page/filter_page.dart';
@@ -68,7 +69,14 @@ class _HomePageState extends State<HomePage> {
                         itemBuilder: (BuildContext context, int index) {
                           return GestureDetector(
                             onTap: () {
-                              Get.to(() => const FilterPage());
+                              context.read<ProductListBloc>().add(
+                                  ProductListEvent.fetchProductList(
+                                      categoryId: category[index].categoryId));
+                              Get.to(() => FilterPage(
+                                    categoryIndex: index,
+                                    categoryId: category[index].categoryId,
+                                    categoryName: category[index].name,
+                                  ));
                             },
                             child: Card(
                                 elevation: 0,
@@ -190,13 +198,14 @@ class _HomePageState extends State<HomePage> {
                         imageUrl:
                             "https://img.freepik.com/free-photo/indian-chicken-biryani-served-terracotta-bowl-with-yogurt-white-background-selective-focus_466689-72554.jpg?w=996&t=st=1662382774~exp=1662383374~hmac=3195b0404799d307075e5326a2b654503021f07749f8327c762c38418dda67a7",
                         title: "title",
-                        disprice: 200,
-                        price: 170,
-                        quantity: 500,
+                        disprice: "200",
+                        price: "200",
+                        quantity: "200",
                         onChanged: (String value) {},
                         ontap: () {
                           Get.to(() => const ProductDetails());
                         },
+                        percentage: '20%',
                       ),
                     );
                   }),

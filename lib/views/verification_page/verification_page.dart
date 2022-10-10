@@ -1,16 +1,35 @@
 import 'dart:developer';
+import 'package:eat_incredible_app/api/network_exception.dart';
+import 'package:eat_incredible_app/repo/login_repo.dart';
 import 'package:eat_incredible_app/utils/barrel.dart';
-import 'package:eat_incredible_app/views/home_page/navigation/navigation.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class VerificationPage extends StatefulWidget {
-  const VerificationPage({super.key});
+  final String? email;
+  const VerificationPage({super.key, required this.email});
 
   @override
   State<VerificationPage> createState() => _VerificationPageState();
 }
 
 class _VerificationPageState extends State<VerificationPage> {
+  final TextEditingController _codeController = TextEditingController();
+  Future _verify() async {
+    LoginRepo().verify(widget.email!, _codeController.text).then((value) {
+      var result = value;
+      result.when(success: (data) {
+        log(data['msg']);
+      }, failure: (error) {
+        Get.snackbar(
+          'Error',
+          NetworkExceptions.getErrorMessage(error),
+          backgroundColor: const Color.fromARGB(255, 255, 17, 0),
+          colorText: Colors.white,
+        );
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,6 +83,7 @@ class _VerificationPageState extends State<VerificationPage> {
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 39.w),
                     child: PinCodeTextField(
+                      controller: _codeController,
                       keyboardType: TextInputType.number,
                       appContext: context,
                       length: 4,
@@ -136,7 +156,7 @@ class _VerificationPageState extends State<VerificationPage> {
                   backgroundColor: const Color.fromRGBO(226, 10, 19, 1),
                 ),
                 onPressed: () {
-                  Get.to(() => const Navigation());
+                  _verify();
                 },
                 child: Text(
                   'Verify',

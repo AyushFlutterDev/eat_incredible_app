@@ -1,22 +1,20 @@
 // To parse this JSON data, do
 //
-//     final categoryModel = categoryModelFromJson(jsonString);
+//     final productDeatilsModel = productDeatilsModelFromJson(jsonString);
 
 import 'dart:convert';
 
-CategoryModel categoryModelFromJson(String str) =>
-    CategoryModel.fromJson(json.decode(str));
+ProductDeatilsModel productDeatilsModelFromJson(String str) =>
+    ProductDeatilsModel.fromJson(json.decode(str));
 
-String categoryModelToJson(CategoryModel data) => json.encode(data.toJson());
+String productDeatilsModelToJson(ProductDeatilsModel data) =>
+    json.encode(data.toJson());
 
-class CategoryModel {
-  CategoryModel({
+class ProductDeatilsModel {
+  ProductDeatilsModel({
     required this.id,
-    required this.name,
-    required this.slug,
-    required this.status,
-    required this.addedOn,
     required this.productName,
+    required this.slug,
     required this.categoryId,
     required this.tax,
     required this.originalPrice,
@@ -30,6 +28,7 @@ class CategoryModel {
     required this.thumbnail,
     required this.thumbHover,
     required this.quantity,
+    required this.status,
     required this.date,
     required this.topSellingProduct,
     required this.couponCode,
@@ -37,38 +36,34 @@ class CategoryModel {
     required this.locationId,
   });
 
-  String id;
-  String name;
-  String slug;
-  String status;
-  String addedOn;
-  String productName;
-  String categoryId;
-  String tax;
-  String originalPrice;
-  String salePrice;
-  String weight;
-  String nutriBenifit;
-  String description;
-  String metaTitle;
-  String metaTag;
-  String metaDesc;
-  String thumbnail;
-  String thumbHover;
-  String quantity;
-  String date;
+  String? id;
+  String? productName;
+  String? slug;
+  String? categoryId;
+  String? tax;
+  String? originalPrice;
+  String? salePrice;
+  String? weight;
+  String? nutriBenifit;
+  String? description;
+  String? metaTitle;
+  String? metaTag;
+  String? metaDesc;
+  String? thumbnail;
+  String? thumbHover;
+  String? quantity;
+  String? status;
+  String? date;
   dynamic topSellingProduct;
   dynamic couponCode;
   dynamic specialPrice;
   dynamic locationId;
 
-  factory CategoryModel.fromJson(Map<String, dynamic> json) => CategoryModel(
+  factory ProductDeatilsModel.fromJson(Map<String, dynamic> json) =>
+      ProductDeatilsModel(
         id: json["id"],
-        name: json["name"],
-        slug: json["slug"],
-        status: json["status"],
-        addedOn: json["addedOn"],
         productName: json["product_name"],
+        slug: json["slug"],
         categoryId: json["category_id"],
         tax: json["tax"],
         originalPrice: json["original_price"],
@@ -82,6 +77,7 @@ class CategoryModel {
         thumbnail: json["thumbnail"],
         thumbHover: json["thumb_hover"],
         quantity: json["quantity"],
+        status: json["status"],
         date: json["date"],
         topSellingProduct: json["top_selling_product"],
         couponCode: json["coupon_code"],
@@ -91,11 +87,8 @@ class CategoryModel {
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "name": name,
-        "slug": slug,
-        "status": status,
-        "addedOn": addedOn,
         "product_name": productName,
+        "slug": slug,
         "category_id": categoryId,
         "tax": tax,
         "original_price": originalPrice,
@@ -109,6 +102,7 @@ class CategoryModel {
         "thumbnail": thumbnail,
         "thumb_hover": thumbHover,
         "quantity": quantity,
+        "status": status,
         "date": date,
         "top_selling_product": topSellingProduct,
         "coupon_code": couponCode,

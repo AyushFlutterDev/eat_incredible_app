@@ -1,4 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:eat_incredible_app/api/network_exception.dart';
+import 'package:eat_incredible_app/repo/login_repo.dart';
 import 'package:eat_incredible_app/utils/barrel.dart';
 import 'package:eat_incredible_app/views/home_page/navigation/navigation.dart';
 import 'package:eat_incredible_app/views/verification_page/verification_page.dart';
@@ -13,15 +15,31 @@ class SignupPage extends StatefulWidget {
 
 class _SignupPageState extends State<SignupPage> {
   Country? selectedCountry;
+  final TextEditingController _phoneController = TextEditingController();
 
   void _showCountryPicker() async {
     final country = await showCountryPickerSheet(context, cornerRadius: 15);
     if (country != null) {
-      
       setState(() {
         selectedCountry = country;
       });
     }
+  }
+
+  Future _login() async {
+    LoginRepo().login(_phoneController.text).then((value) {
+      var result = value;
+      result.when(success: (data) {
+        Get.to(() => VerificationPage(email: _phoneController.text));
+      }, failure: (error) {
+        Get.snackbar(
+          'Error',
+          NetworkExceptions.getErrorMessage(error),
+          backgroundColor: const Color.fromARGB(255, 255, 17, 0),
+          colorText: Colors.white,
+        );
+      });
+    });
   }
 
   ConstantData constantData = ConstantData();
@@ -156,7 +174,8 @@ class _SignupPageState extends State<SignupPage> {
                     Expanded(
                       child: SizedBox(
                         child: TextFormField(
-                          keyboardType: TextInputType.number,
+                          controller: _phoneController,
+                          keyboardType: TextInputType.emailAddress,
                           decoration: const InputDecoration(
                             border: OutlineInputBorder(
                               // borderRadius: BorderRadius.circular(5),
@@ -193,9 +212,7 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                   backgroundColor: const Color.fromRGBO(226, 10, 19, 1),
                 ),
-                onPressed: () {
-                  Get.to(() => const VerificationPage());
-                },
+                onPressed: _login,
                 child: Text(
                   'Continue',
                   style: GoogleFonts.poppins(

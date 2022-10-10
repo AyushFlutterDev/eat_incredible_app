@@ -9,8 +9,7 @@ class ApiHelper {
 
   setUpOptions() {
     baseOptions = BaseOptions(
-      baseUrl:
-          'http://159.203.17.191/plesk-site-preview/jolly-ride.159-203-17-191.plesk.page/https/159.203.17.191/api/',
+      baseUrl: 'https://jolly-ride.159-203-17-191.plesk.page/api/',
       connectTimeout: 5000,
       receiveTimeout: 3000,
     );

@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eat_incredible_app/controller/category/category_bloc.dart';
+import 'package:eat_incredible_app/controller/product_details/product_details_bloc.dart';
+import 'package:eat_incredible_app/controller/product_list/product_list_bloc.dart';
 import 'package:eat_incredible_app/utils/barrel.dart';
 import 'package:eat_incredible_app/views/splash_screen/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,6 +23,10 @@ class MyApp extends StatelessWidget {
           return MultiBlocProvider(
             providers: [
               BlocProvider<CategoryBloc>(create: (context) => CategoryBloc()),
+              BlocProvider<ProductListBloc>(
+                  create: (context) => ProductListBloc()),
+              BlocProvider<ProductDetailsBloc>(
+                  create: (context) => ProductDetailsBloc()),
             ],
             child: GetMaterialApp(
               theme: ThemeData(useMaterial3: true),

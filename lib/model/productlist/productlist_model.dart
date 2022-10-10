@@ -2,15 +2,20 @@
 //
 //     final categoryModel = categoryModelFromJson(jsonString);
 
+// To parse this JSON data, do
+//
+//     final productlistModel = productlistModelFromJson(jsonString);
+
 import 'dart:convert';
 
-CategoryModel categoryModelFromJson(String str) =>
-    CategoryModel.fromJson(json.decode(str));
+ProductlistModel productlistModelFromJson(String str) =>
+    ProductlistModel.fromJson(json.decode(str));
 
-String categoryModelToJson(CategoryModel data) => json.encode(data.toJson());
+String productlistModelToJson(ProductlistModel data) =>
+    json.encode(data.toJson());
 
-class CategoryModel {
-  CategoryModel({
+class ProductlistModel {
+  ProductlistModel({
     required this.id,
     required this.name,
     required this.slug,
@@ -31,38 +36,39 @@ class CategoryModel {
     required this.thumbHover,
     required this.quantity,
     required this.date,
-    required this.topSellingProduct,
-    required this.couponCode,
-    required this.specialPrice,
-    required this.locationId,
+    this.topSellingProduct,
+    this.couponCode,
+    this.specialPrice,
+    this.locationId,
   });
 
-  String id;
-  String name;
-  String slug;
-  String status;
-  String addedOn;
-  String productName;
-  String categoryId;
-  String tax;
-  String originalPrice;
-  String salePrice;
-  String weight;
-  String nutriBenifit;
-  String description;
-  String metaTitle;
-  String metaTag;
-  String metaDesc;
-  String thumbnail;
-  String thumbHover;
-  String quantity;
-  String date;
+  String? id;
+  String? name;
+  String? slug;
+  String? status;
+  String? addedOn;
+  String? productName;
+  String? categoryId;
+  String? tax;
+  String? originalPrice;
+  String? salePrice;
+  String? weight;
+  String? nutriBenifit;
+  String? description;
+  String? metaTitle;
+  String? metaTag;
+  String? metaDesc;
+  String? thumbnail;
+  String? thumbHover;
+  String? quantity;
+  String? date;
   dynamic topSellingProduct;
   dynamic couponCode;
   dynamic specialPrice;
   dynamic locationId;
 
-  factory CategoryModel.fromJson(Map<String, dynamic> json) => CategoryModel(
+  factory ProductlistModel.fromJson(Map<String, dynamic> json) =>
+      ProductlistModel(
         id: json["id"],
         name: json["name"],
         slug: json["slug"],
