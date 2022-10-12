@@ -8,6 +8,7 @@ import 'package:eat_incredible_app/widgets/banner/custom_banner.dart';
 import 'package:eat_incredible_app/widgets/product_card/product_card.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:readmore/readmore.dart';
+import 'package:shimmer/shimmer.dart';
 
 class ProductDetails extends StatefulWidget {
   const ProductDetails({super.key});
@@ -53,9 +54,21 @@ class _ProductDetailsState extends State<ProductDetails> {
             builder: (context, state) {
               return state.maybeWhen(
                 orElse: () {
-                  return const SizedBox(
+                  return Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10.w),
+                    child: SizedBox(
                       height: double.infinity,
-                      child: Center(child: CircularProgressIndicator()));
+                      width: double.infinity,
+                      child: Shimmer.fromColors(
+                        baseColor: const Color.fromARGB(44, 222, 220, 220),
+                        highlightColor: Colors.grey[100]!,
+                        child: Image.asset(
+                          "assets/images/product_details.png",
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  );
                 },
                 loaded: (productdetails) {
                   return SingleChildScrollView(

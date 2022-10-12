@@ -69,7 +69,7 @@ class ApiHelper {
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
-    ProgressCallback? onReceiveProgress,
+    ProgressCallback? onReceiveProgress, required Map<String, dynamic> body,
   }) async {
     try {
       final Response result = await _dio.put(

@@ -11,6 +11,7 @@ import 'package:eat_incredible_app/widgets/filter/filter_bar.dart';
 import 'package:eat_incredible_app/widgets/product_card/product_card.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shimmer/shimmer.dart';
 
 class FilterPage extends StatefulWidget {
   final int categoryIndex;
@@ -121,10 +122,23 @@ class _FilterPageState extends State<FilterPage> {
                     builder: (context, state) {
                       return state.maybeWhen(
                         orElse: () {
-                          return SizedBox(
-                            height: 70.h,
-                            child: const Center(
-                              child: CircularProgressIndicator(),
+                          return Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10.w),
+                            child: SizedBox(
+                              height: double.infinity,
+                              width: double.infinity,
+                              child: Shimmer.fromColors(
+                                baseColor:
+                                    const Color.fromARGB(255, 242, 240, 240),
+                                highlightColor: Colors.grey[100]!,
+                                child: Image.asset(
+                                  "assets/images/grid_loading.png",
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              // const Center(
+                              //   child: CircularProgressIndicator(),
+                              // ),
                             ),
                           );
                         },
@@ -139,30 +153,35 @@ class _FilterPageState extends State<FilterPage> {
                               ),
                               itemBuilder: (BuildContext context, int index) {
                                 return FadeInUp(
+                                    from: 10,
                                     child: ProductCard(
-                                  imageUrl:
-                                      productList[index].thumbnail.toString(),
-                                  title:
-                                      productList[index].productName.toString(),
-                                  disprice: productList[index]
-                                      .originalPrice
-                                      .toString(),
-                                  price:
-                                      productList[index].salePrice.toString(),
-                                  quantity:
-                                      productList[index].weight.toString(),
-                                  onChanged: (value) {},
-                                  ontap: () {
-                                    context.read<ProductDetailsBloc>().add(
-                                            ProductDetailsEvent
-                                                .getproductdetails(
-                                          productId:
-                                              productList[index].id.toString(),
-                                        ));
-                                    Get.to(() => const ProductDetails());
-                                  },
-                                  percentage: '30 %',
-                                ));
+                                      imageUrl: productList[index]
+                                          .thumbnail
+                                          .toString(),
+                                      title: productList[index]
+                                          .productName
+                                          .toString(),
+                                      disprice: productList[index]
+                                          .originalPrice
+                                          .toString(),
+                                      price: productList[index]
+                                          .salePrice
+                                          .toString(),
+                                      quantity:
+                                          productList[index].weight.toString(),
+                                      onChanged: (value) {},
+                                      ontap: () {
+                                        context.read<ProductDetailsBloc>().add(
+                                                ProductDetailsEvent
+                                                    .getproductdetails(
+                                              productId: productList[index]
+                                                  .id
+                                                  .toString(),
+                                            ));
+                                        Get.to(() => const ProductDetails());
+                                      },
+                                      percentage: '30 %',
+                                    ));
                               });
                         },
                       );

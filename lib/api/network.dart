@@ -4,16 +4,16 @@ import 'package:eat_incredible_app/repo/url_repo.dart';
 
 class Network {
   final client = ApiHelper();
-  Future<Response> postlogin(String email) async {
+  Future<Response> postlogin(String phone, String countryCode) async {
     return await client.postRequest(UrlRepo.loginwithOtp, data: {
-      'email': email,
+      'phone': phone,
     });
   }
 
-  Future<Response> postverify(String email, String code) async {
+  Future<Response> verifyOtp(String phone, String otp) async {
     return await client.postRequest(UrlRepo.verifyOtp, data: {
-      'email': email,
-      'code': code,
+      "phone": phone,
+      "otp": int.parse(otp),
     });
   }
 
