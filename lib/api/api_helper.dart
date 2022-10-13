@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:eat_incredible_app/api/interceptor.dart' as interceptor;
 
 class ApiHelper {
   Dio _dio = Dio();
@@ -9,11 +10,12 @@ class ApiHelper {
 
   setUpOptions() {
     baseOptions = BaseOptions(
-      baseUrl: 'http://localhost/eatincredible/api/',
+      baseUrl: 'https://jolly-ride.159-203-17-191.plesk.page/api/',
       connectTimeout: 5000,
       receiveTimeout: 3000,
     );
     _dio = Dio(baseOptions);
+    _dio.interceptors.add(interceptor.Interceptors());
   }
 
   Future<dynamic> getRequest(
@@ -70,6 +72,7 @@ class ApiHelper {
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
+    required Map<String, dynamic> body,
   }) async {
     try {
       final Response result = await _dio.put(

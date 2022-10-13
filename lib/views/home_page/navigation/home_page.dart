@@ -1,8 +1,12 @@
+import 'package:eat_incredible_app/controller/category/category_bloc.dart';
+import 'package:eat_incredible_app/controller/product_list/product_list_bloc.dart';
 import 'package:eat_incredible_app/utils/barrel.dart';
+import 'package:eat_incredible_app/utils/messsenger.dart';
 import 'package:eat_incredible_app/views/home_page/others/filter_page/filter_page.dart';
 import 'package:eat_incredible_app/views/home_page/others/product_details/product_details.dart';
 import 'package:eat_incredible_app/widgets/product_card/product_card.dart';
 import 'package:eat_incredible_app/widgets/banner/custom_banner.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -36,39 +40,69 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 10.w),
-              child: SizedBox(
-                height: 70.h,
-                width: double.infinity,
-                child: ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  itemCount: ConstantData.vegCategory.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return GestureDetector(
-                      onTap: () {
-                        Get.to(() => const FilterPage());
-                      },
-                      child: Card(
-                          elevation: 0,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              CustomPic(
-                                  imageUrl: ConstantData.vegCategory[index]
-                                      ["image"],
-                                  height: 40.h,
-                                  width: 55.w),
-                              Text(ConstantData.vegCategory[index]["name"],
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 12.sp,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.normal)),
-                            ],
-                          )),
+              child: BlocConsumer<CategoryBloc, CategoryState>(
+                bloc: context.read<CategoryBloc>(),
+                listener: (context, state) {
+                  state.when(
+                      initial: () {},
+                      loading: () {},
+                      loaded: (_) {},
+                      failure: (e) {
+                        CustomSnackbar.errorSnackbar("Error", e);
+                      });
+                },
+                builder: (context, state) {
+                  return state.maybeWhen(orElse: () {
+                    return SizedBox(
+                        height: 70.h,
+                        child:
+                            const Center(child: CircularProgressIndicator()));
+                  }, loaded: (category) {
+                    return SizedBox(
+                      height: 70.h,
+                      width: double.infinity,
+                      child: ListView.builder(
+                        physics: const BouncingScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        itemCount: category.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return GestureDetector(
+                            onTap: () {
+                              context.read<ProductListBloc>().add(
+                                  ProductListEvent.fetchProductList(
+                                      categoryId: category[index].categoryId));
+                              Get.to(() => FilterPage(
+                                    categoryIndex: index,
+                                    categoryId: category[index].categoryId,
+                                    categoryName: category[index].name,
+                                  ));
+                            },
+                            child: Card(
+                                elevation: 0,
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    CustomPic(
+                                        imageUrl: category[index]
+                                            .thumbnail
+                                            .toString(),
+                                        height: 40.h,
+                                        width: 55.w),
+                                    Text(category[index].name.toString(),
+                                        style: GoogleFonts.poppins(
+                                            fontSize: 12.sp,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.normal)),
+                                  ],
+                                )),
+                          );
+                        },
+                      ),
                     );
-                  },
-                ),
+                  });
+                },
               ),
             ),
             Padding(
@@ -164,13 +198,14 @@ class _HomePageState extends State<HomePage> {
                         imageUrl:
                             "https://img.freepik.com/free-photo/indian-chicken-biryani-served-terracotta-bowl-with-yogurt-white-background-selective-focus_466689-72554.jpg?w=996&t=st=1662382774~exp=1662383374~hmac=3195b0404799d307075e5326a2b654503021f07749f8327c762c38418dda67a7",
                         title: "title",
-                        disprice: 200,
-                        price: 170,
-                        quantity: 500,
+                        disprice: "200",
+                        price: "200",
+                        quantity: "200",
                         onChanged: (String value) {},
                         ontap: () {
                           Get.to(() => const ProductDetails());
                         },
+                        percentage: '20%',
                       ),
                     );
                   }),

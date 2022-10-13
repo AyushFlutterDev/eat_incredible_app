@@ -3,10 +3,11 @@ import 'package:eat_incredible_app/widgets/banner/custom_banner.dart';
 
 class ProductCard extends StatefulWidget {
   final String imageUrl;
+  final String percentage;
   final String title;
-  final int disprice;
-  final int price;
-  final int quantity;
+  final String disprice;
+  final String price;
+  final String quantity;
   final ValueChanged<String>? onChanged;
   final GestureTapCallback? ontap;
 
@@ -19,6 +20,7 @@ class ProductCard extends StatefulWidget {
     required this.quantity,
     required this.onChanged,
     required this.ontap,
+    required this.percentage,
   });
 
   @override
@@ -55,8 +57,7 @@ class _ProductCardState extends State<ProductCard> {
                     alignment: Alignment.topLeft,
                     children: [
                       CustomPic(
-                          imageUrl:
-                              'https://media.istockphoto.com/photos/tomato-basil-leaf-and-garlic-picture-id171321115?k=20&m=171321115&s=612x612&w=0&h=LWGky4BiZuobbgqjnZQ4c1-MUJxvMCN7xZYUBQLagEc=',
+                          imageUrl: widget.imageUrl,
                           height: 95.h,
                           width: double.infinity),
                       Positioned(
@@ -73,7 +74,7 @@ class _ProductCardState extends State<ProductCard> {
                           width: 52.w,
                           child: Center(
                             child: Text(
-                              "10% OFF",
+                              "${widget.percentage} OFF",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 10.sp,
@@ -95,7 +96,7 @@ class _ProductCardState extends State<ProductCard> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Aloo Paratha",
+                        widget.title,
                         style: GoogleFonts.poppins(
                             fontSize: 10.8.sp, fontWeight: FontWeight.w500),
                       ),
@@ -103,7 +104,7 @@ class _ProductCardState extends State<ProductCard> {
                         height: 0.6.h,
                       ),
                       Text(
-                        "500 gm",
+                        widget.quantity,
                         style: GoogleFonts.poppins(
                             fontSize: 9.5.sp,
                             fontWeight: FontWeight.w500,

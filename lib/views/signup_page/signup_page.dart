@@ -1,8 +1,12 @@
+import 'dart:developer';
+
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:eat_incredible_app/controller/login/login_bloc.dart';
 import 'package:eat_incredible_app/utils/barrel.dart';
 import 'package:eat_incredible_app/views/home_page/navigation/navigation.dart';
-import 'package:eat_incredible_app/views/verification_page/verification_page.dart';
 import 'package:country_calling_code_picker/picker.dart';
+import 'package:eat_incredible_app/views/verification_page/verification_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -13,16 +17,19 @@ class SignupPage extends StatefulWidget {
 
 class _SignupPageState extends State<SignupPage> {
   Country? selectedCountry;
+  String selectedCountryCode = '+91';
 
-  void _showCountryPicker() async {
-    final country = await showCountryPickerSheet(context, cornerRadius: 15);
-    if (country != null) {
-      
-      setState(() {
-        selectedCountry = country;
-      });
-    }
-  }
+  final TextEditingController _phoneController = TextEditingController();
+
+  // void _showCountryPicker() async {
+  //   final country = await showCountryPickerSheet(context, cornerRadius: 15);
+  //   if (country != null) {
+  //     setState(() {
+  //       selectedCountry = country;
+  //       selectedCountryCode = country.callingCode;
+  //     });
+  //   }
+  // }
 
   ConstantData constantData = ConstantData();
   @override
@@ -140,7 +147,7 @@ class _SignupPageState extends State<SignupPage> {
                   children: [
                     GestureDetector(
                       onTap: (() {
-                        _showCountryPicker();
+                        // _showCountryPicker();
                       }),
                       child: SizedBox(
                         width: 60.w,
@@ -156,6 +163,7 @@ class _SignupPageState extends State<SignupPage> {
                     Expanded(
                       child: SizedBox(
                         child: TextFormField(
+                          controller: _phoneController,
                           keyboardType: TextInputType.number,
                           decoration: const InputDecoration(
                             border: OutlineInputBorder(
@@ -170,9 +178,6 @@ class _SignupPageState extends State<SignupPage> {
                             }
                             return null;
                           },
-                          onChanged: (value) {
-                            //
-                          },
                         ),
                       ),
                     ),
@@ -180,32 +185,57 @@ class _SignupPageState extends State<SignupPage> {
                 ),
               ),
             ),
-            Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: 15.w,
-              ),
-              width: double.infinity,
-              height: 40.h,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  backgroundColor: const Color.fromRGBO(226, 10, 19, 1),
-                ),
-                onPressed: () {
-                  Get.to(() => const VerificationPage());
-                },
-                child: Text(
-                  'Continue',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.normal,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+            //! Login Button =========================== >
+            BlocConsumer<LoginBloc, LoginState>(
+              listener: (context, state) {
+                state.when(
+                    initial: () {},
+                    loading: () {},
+                    loaded: (lodedData) {
+                      Get.to(() => VerificationPage(
+                            phone: _phoneController.text,
+                            countryCode: selectedCountryCode,
+                          ));
+                    },
+                    failure: (e) {
+                      Get.snackbar(
+                        'Error',
+                        e,
+                        backgroundColor: const Color.fromARGB(255, 255, 17, 0),
+                        colorText: Colors.white,
+                      );
+                    });
+              },
+              builder: (context, state) {
+                return state.maybeWhen(
+                  initial: () {
+                    return Loginbtn(
+                      phoneController: _phoneController,
+                      countryCode: selectedCountryCode,
+                    );
+                  },
+                  orElse: () {
+                    return Loginbtn(
+                      phoneController: _phoneController,
+                      countryCode: selectedCountryCode,
+                    );
+                  },
+                  loading: (() {
+                    return SizedBox(
+                        height: 70.h,
+                        child:
+                            const Center(child: CircularProgressIndicator()));
+                  }),
+                  loaded: (logindata) {
+                    return Loginbtn(
+                      phoneController: _phoneController,
+                      countryCode: selectedCountryCode,
+                    );
+                  },
+                );
+              },
             ),
+            //! Login Button =========================== >
             SizedBox(
               height: 10.h,
             ),
@@ -223,6 +253,60 @@ class _SignupPageState extends State<SignupPage> {
               ),
             )
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class Loginbtn extends StatelessWidget {
+  const Loginbtn({
+    Key? key,
+    required TextEditingController phoneController,
+    required this.countryCode,
+  })  : _phoneController = phoneController,
+        super(key: key);
+
+  final TextEditingController _phoneController;
+  final String countryCode;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(
+        horizontal: 15.w,
+      ),
+      width: double.infinity,
+      height: 40.h,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+          ),
+          backgroundColor: const Color.fromRGBO(226, 10, 19, 1),
+        ),
+        onPressed: () {
+          log(_phoneController.text);
+          log(countryCode);
+          if (_phoneController.text.length != 10) {
+            Get.snackbar(
+              'Error',
+              'Please enter your Vaild phone number',
+              backgroundColor: const Color.fromARGB(255, 255, 17, 0),
+              colorText: Colors.white,
+            );
+          } else {
+            context.read<LoginBloc>().add(LoginEvent.login(
+                phone: _phoneController.text, countryCode: countryCode));
+          }
+        },
+        child: Text(
+          'Continue',
+          style: GoogleFonts.poppins(
+            fontSize: 14.sp,
+            fontWeight: FontWeight.normal,
+            color: Colors.white,
+          ),
         ),
       ),
     );
