@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:eat_incredible_app/controller/login/login_bloc.dart';
 import 'package:eat_incredible_app/controller/verify_otp/verify_bloc.dart';
 import 'package:eat_incredible_app/utils/barrel.dart';
 import 'package:eat_incredible_app/views/home_page/navigation/navigation.dart';
@@ -7,8 +8,10 @@ import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class VerificationPage extends StatefulWidget {
-  final String? email;
-  const VerificationPage({super.key, required this.email});
+  final String? phone;
+  final String? countryCode;
+  const VerificationPage(
+      {super.key, required this.phone, required this.countryCode});
 
   @override
   State<VerificationPage> createState() => _VerificationPageState();
@@ -62,7 +65,7 @@ class _VerificationPageState extends State<VerificationPage> {
                     child: Container(
                       padding: EdgeInsets.symmetric(horizontal: 30.w),
                       child: Text(
-                        'Enter the OTP you have received to set your password on ${widget.email}',
+                        'Enter the OTP you have received to set your password on ${widget.phone}',
                         style: GoogleFonts.poppins(
                             fontSize: 11.5.sp,
                             fontWeight: FontWeight.normal,
@@ -97,7 +100,7 @@ class _VerificationPageState extends State<VerificationPage> {
                       onChanged: (value) async {
                         if (_codeController.text.length == 4) {
                           context.read<VerifyBloc>().add(VerifyEvent.verify(
-                                phone: widget.email!,
+                                phone: widget.phone!,
                                 otp: _codeController.text,
                               ));
                         }
@@ -155,6 +158,10 @@ class _VerificationPageState extends State<VerificationPage> {
                                     isResendOtp = false;
                                     timeCount = 30;
                                   });
+                                  context.read<LoginBloc>().add(
+                                      LoginEvent.login(
+                                          phone: widget.phone!,
+                                          countryCode: widget.countryCode!));
                                 },
                                 child: Text(
                                   'Resend OTP',
@@ -192,7 +199,7 @@ class _VerificationPageState extends State<VerificationPage> {
                     initial: () {},
                     loading: () {},
                     loaded: (lodedData) {
-                      Get.to(() => const Navigation());
+                      Get.offAll(() => const Navigation());
                     },
                     failure: (e) {
                       Get.snackbar(
@@ -257,7 +264,7 @@ class VerifyBtn extends StatelessWidget {
         onPressed: () async {
           if (_codeController.text.length == 4) {
             context.read<VerifyBloc>().add(VerifyEvent.verify(
-                  phone: widget.email!,
+                  phone: widget.phone!,
                   otp: _codeController.text,
                 ));
           } else {

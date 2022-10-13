@@ -193,7 +193,8 @@ class _SignupPageState extends State<SignupPage> {
                     loading: () {},
                     loaded: (lodedData) {
                       Get.to(() => VerificationPage(
-                            email: _phoneController.text,
+                            phone: _phoneController.text,
+                            countryCode: selectedCountryCode,
                           ));
                     },
                     failure: (e) {

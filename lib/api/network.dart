@@ -17,6 +17,10 @@ class Network {
     });
   }
 
+  Future<Response> logout(String phone) async {
+    return await client.postRequest(UrlRepo.logout);
+  }
+
   Future<Response> getCategories() async {
     return await client.getRequest(UrlRepo.category);
   }

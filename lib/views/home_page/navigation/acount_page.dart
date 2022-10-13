@@ -1,3 +1,4 @@
+import 'package:eat_incredible_app/repo/login_repo.dart';
 import 'package:eat_incredible_app/utils/barrel.dart';
 import 'package:eat_incredible_app/views/home_page/others/account/about_page.dart';
 import 'package:eat_incredible_app/views/home_page/others/account/account_info_page.dart';
@@ -112,7 +113,29 @@ class AcountPage extends StatelessWidget {
                     fontSize: 13.sp,
                   )),
               trailing: Icon(Icons.arrow_forward_ios, size: 15.sp),
-              onTap: () => () {},
+              onTap: () {
+                Get.dialog(
+                  AlertDialog(
+                    title: const Text('Log Out'),
+                    content: const Text('Are you sure you want to log out?'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Get.back(),
+                        child: const Text('No'),
+                      ),
+                      TextButton(
+                        onPressed: () async {
+                          // final SharedPreferences prefs =
+                          //     await SharedPreferences.getInstance();
+                          // final String? phone = prefs.getString('phone');
+                          LoginRepo().logout("97838312");
+                        },
+                        child: const Text('Yes'),
+                      ),
+                    ],
+                  ),
+                );
+              },
             ),
             const Divider(
               thickness: 1.5,

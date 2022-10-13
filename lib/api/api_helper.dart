@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:eat_incredible_app/api/interceptor.dart' as interceptor;
 
 class ApiHelper {
   Dio _dio = Dio();
@@ -14,6 +15,7 @@ class ApiHelper {
       receiveTimeout: 3000,
     );
     _dio = Dio(baseOptions);
+    _dio.interceptors.add(interceptor.Interceptors());
   }
 
   Future<dynamic> getRequest(
@@ -69,7 +71,8 @@ class ApiHelper {
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
-    ProgressCallback? onReceiveProgress, required Map<String, dynamic> body,
+    ProgressCallback? onReceiveProgress,
+    required Map<String, dynamic> body,
   }) async {
     try {
       final Response result = await _dio.put(
